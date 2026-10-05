@@ -10,6 +10,7 @@ Leia antes de mudar algo estrutural:
 - `docs/arquitetura.md`: stack, rotas, formato do conteúdo, API do quiz
 - `docs/decisoes.md`: o que já foi decidido e por quê
 - `CONTRIBUTING.md`: padrões de código, commits e PR
+- `docs/design-system.md`: tokens, componentes e checklist de auditoria de UI
 
 ## Comandos
 
@@ -23,7 +24,7 @@ npm run build       # rode antes de considerar uma tarefa concluída
 ## Regras
 
 - Next.js App Router + TypeScript strict. **Server Components por padrão**, `"use client"` só para interação (quiz, checklist, embed de vídeo).
-- Estilo apenas com CSS Modules + tokens de `src/styles/tokens.css`. Não adicionar Tailwind, biblioteca de UI ou de estado.
+- Estilo apenas com CSS Modules + tokens de `src/styles/tokens.css`, seguindo `docs/design-system.md`. Ícones só com `lucide-react`. Não adicionar Tailwind, biblioteca de UI ou de estado.
 - **Não adicionar dependências** sem pedido explícito.
 - Identificadores em inglês. Texto de UI, rotas e conteúdo em pt-BR, linguagem simples e direta.
 - Conteúdo fica em `content/`. Não escreva texto de módulo dentro de componentes.
@@ -37,3 +38,13 @@ npm run build       # rode antes de considerar uma tarefa concluída
 ## Commits e PRs
 
 Conventional Commits em português (`feat:`, `fix:`, `conteudo:`, `chore:`, `docs:`, `style:`, `refactor:`). Um assunto por PR, usando o template de `.github/pull_request_template.md`.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

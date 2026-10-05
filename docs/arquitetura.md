@@ -26,7 +26,9 @@ Prazo e tamanho da equipe (2 devs, ~5 semanas) mandam em toda decisão. Na dúvi
 |---|---|
 | Framework | Next.js (App Router) + TypeScript (strict) |
 | Conteúdo | MDX via `@next/mdx`, metadados exportados como `meta` (sem frontmatter) |
-| Estilo | CSS Modules + tokens em variáveis CSS (`src/styles/tokens.css`) |
+| Estilo | CSS Modules + tokens em variáveis CSS (`src/styles/tokens.css`), ver [design-system.md](design-system.md) |
+| Ícones | `lucide-react` |
+| Fontes | Space Grotesk, Inter e JetBrains Mono via `next/font` |
 | Persistência | Upstash Redis (`@upstash/redis`), só para o quiz |
 | Hospedagem | Vercel (preview por PR, produção na `main`) |
 | Métricas | Vercel Web Analytics |
@@ -72,9 +74,12 @@ src/
   styles/
     tokens.css
     globals.css
+    page.module.css     # blocos de layout das páginas internas
 public/
   downloads/            # cartilha.pdf, infográficos
-  og/                   # imagens de compartilhamento
+  capas/                # capa de cada módulo: {slug}.jpg
+  brand/                # logo e símbolo
+  hero.jpg              # arte do topo da página inicial (base da imagem de compartilhamento)
 mdx-components.tsx      # mapeamento global de componentes MDX
 ```
 
@@ -184,9 +189,9 @@ O portal só aponta para esses formulários via `NEXT_PUBLIC_FORM_*`.
 
 ## Identidade visual
 
-Referência: tela de boot em "modo de segurança". Fundo escuro, texto claro, fonte monoespaçada em títulos e rótulos, sans-serif legível no corpo do texto. Tudo vem de `tokens.css`. Nenhuma cor ou tamanho fixo nos componentes.
+Dark com um único acento verde-limão (`#C6FF3D`), títulos em Space Grotesk, corpo em Inter e rótulos em JetBrains Mono (via `next/font`). Marca: escudo com cursor de terminal (`>_`), referência ao "modo de segurança" do computador. Tudo vem de `tokens.css`; nenhuma cor ou tamanho fixo nos componentes.
 
-Tokens mínimos: `--bg`, `--surface`, `--text`, `--text-muted`, `--accent`, `--danger`, `--ok`, `--font-mono`, `--font-body`, `--space-1..6`, `--radius`, `--max-width`.
+Tokens, componentes, regras de uso e o checklist de auditoria de UI estão em [design-system.md](design-system.md).
 
 ## Acessibilidade e desempenho
 

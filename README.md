@@ -4,7 +4,8 @@ Minicurso online e gratuito de segurança digital para estudantes. Projeto de ex
 
 O portal reúne os 5 módulos do minicurso (microaula + texto), o checklist de segurança, o quiz de fechamento, a cartilha em PDF, a gravação da live de encerramento e as perguntas da comunidade. Todo o conteúdo é público e não exige cadastro.
 
-- **Produção:** https://modo-seguro.vercel.app (ou subdomínio em `caykedev.com`, ver [docs/decisoes.md](docs/decisoes.md))
+- **Produção:** https://modoseguro.cayke.dev
+- **Design system:** [docs/design-system.md](docs/design-system.md)
 - **Arquitetura:** [docs/arquitetura.md](docs/arquitetura.md)
 - **Como contribuir:** [CONTRIBUTING.md](CONTRIBUTING.md)
 - **Guia para quem escreve conteúdo:** [docs/guia-de-conteudo.md](docs/guia-de-conteudo.md)

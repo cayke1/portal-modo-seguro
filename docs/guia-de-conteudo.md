@@ -44,8 +44,10 @@ Explicação do tema.
 
 ## O que fazer agora
 <Callout tipo="dica">
+
 - Ação concreta 1
 - Ação concreta 2
+
 </Callout>
 
 ## Fontes
@@ -68,6 +70,8 @@ Regras:
 | `<VideoEmbed id="..." titulo="..." />` | microaula do YouTube |
 | `<Callout tipo="dica \| alerta \| exemplo">...</Callout>` | caixa de destaque |
 | `<ConviteDuvidas />` | convite padrão para enviar dúvidas e relatos (fim de todo módulo) |
+
+Dentro de `<Callout>`, deixe **uma linha em branco** depois da abertura e antes do fechamento; sem isso, listas e negrito aparecem como texto cru.
 
 Precisa de outro componente? Peça à Equipe Portal. Não cole HTML no MDX.
 

@@ -53,6 +53,8 @@ Tipos aceitos: `feat`, `fix`, `conteudo`, `style`, `refactor`, `chore`, `docs`.
 
 ## Checklist de acessibilidade (todo PR com UI)
 
+Veja também a auditoria completa em [docs/design-system.md](docs/design-system.md#auditoria-checklist-de-pr-com-ui).
+
 - [ ] Contraste AA (confira no DevTools)
 - [ ] Texto do corpo ≥ 16px, alvos de toque ≥ 44px
 - [ ] Navegável só com teclado, com foco visível

@@ -34,7 +34,7 @@ Mede o "alcance aberto do portal" para o relatório, sem cookies.
 ### D10. Vídeos no YouTube não listado (05/10/2026)
 Hospedagem gratuita, legendas e sem custo de banda na Vercel.
 
-### D11. Domínio (05/10/2026)
+### D11. Domínio (05/10/2026) — substituída pela D14
 `*.vercel.app` ou um subdomínio de `caykedev.com` (ex.: `modoseguro.caykedev.com`). Qualquer um serve. Definir antes da divulgação, porque o link vai impresso na cartilha e nas peças.
 
 ### D12. Sem testes automatizados além de lint, typecheck e build (05/10/2026)
@@ -42,3 +42,15 @@ Não cabe no prazo. Revisão por PR + preview cobre o risco de um site de conte�
 
 ### D13. Equipe Portal: Cayke e Lucas Yudi (05/10/2026)
 Revisores obrigatórios de mudanças em `src/` e na configuração.
+
+### D14. Domínio: `modoseguro.cayke.dev` (05/10/2026)
+Substitui a D11. Usado em `metadataBase`, Open Graph e sitemap (`src/lib/site.ts`). Precisa estar apontado na Vercel antes da divulgação.
+
+### D15. Identidade visual: dark + verde-limão, escudo com cursor (05/10/2026)
+Referências de landing pages dark com um único acento. Verde-limão mantém a ideia de "modo seguro"/terminal. Padrão e auditoria em `docs/design-system.md`. Capas, logo e favicon gerados com IA (Codex) e revisados pela equipe.
+
+### D16. Ícones com `lucide-react` (05/10/2026)
+Traço consistente, só os ícones usados entram no bundle e funciona em Server Components. Única dependência de UI permitida.
+
+### D17. Header enxuto com gaveta no celular (05/10/2026)
+Desktop: Módulos, Checklist, Quiz, Materiais (Cartilha, Live, Perguntas) e botão de inscrição. "Sobre" vai para o rodapé. No celular, tudo numa gaveta em tela cheia.
