@@ -1,76 +1,254 @@
-/* Estilos compartilhados pelas páginas de conteúdo. */
-.intro {
-  max-width: var(--measure);
-  color: var(--text-muted);
-  font-size: var(--text-lg);
-}
+/* Landing page. Mobile first. */
 
-.prose {
-  max-width: var(--measure);
-}
-
-.muted {
-  color: var(--text-muted);
-}
-
-.eyebrow {
-  margin-bottom: var(--space-2);
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin: var(--space-4) 0;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-  gap: var(--space-3);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.timeline {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-left: var(--border-width) solid var(--border);
-}
-
-.timeline > li {
+/* Hero */
+.hero {
   position: relative;
-  padding: 0 0 var(--space-4) var(--space-4);
+  overflow: hidden;
+  padding-bottom: var(--space-7);
 }
 
-.timeline > li::before {
-  content: '';
-  position: absolute;
-  left: calc(-1 * var(--space-1) - var(--border-width) / 2);
-  top: var(--space-2);
-  width: var(--space-2);
-  height: var(--space-2);
-  border-radius: 50%;
-  background: var(--accent);
+.heroArt {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  margin-bottom: calc(-1 * var(--space-8));
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent);
+  mask-image: linear-gradient(to bottom, black 55%, transparent);
 }
 
-.timeline h3 {
-  margin: 0 0 var(--space-1);
-  font-size: var(--text-base);
+.heroImage {
+  object-fit: cover;
+  object-position: 78% 50%;
 }
 
-.timeline ul {
-  margin: 0;
+.heroContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  max-width: 40rem;
+}
+
+.heroTitle {
+  font-size: var(--text-display);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.05;
+}
+
+.highlight {
+  color: var(--accent);
+  text-shadow: 0 0 32px var(--accent-glow);
+}
+
+.heroLead {
+  max-width: 34rem;
+  color: var(--text-muted);
+  font-size: var(--text-md);
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: var(--space-3);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-self: stretch;
+  gap: var(--space-5) var(--space-4);
+  margin: var(--space-4) 0 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
   padding-left: var(--space-4);
+  border-left: var(--border-width) solid var(--border-strong);
 }
 
-.backLink {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-target);
+.statValue {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.1;
+}
+
+.statLabel {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 560px) {
+  .heroActions {
+    flex-direction: row;
+    align-self: flex-start;
+  }
+
+  .stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: min(46rem, calc(100dvh - var(--header-height)));
+    padding-block: var(--space-9);
+  }
+
+  .heroArt {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 68%;
+    aspect-ratio: auto;
+    margin: 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 35%);
+    mask-image: linear-gradient(to right, transparent, black 35%);
+  }
+
+  .heroImage {
+    object-position: 70% 50%;
+  }
+}
+
+/* Seções */
+.section {
+  padding-top: var(--section-gap);
+}
+
+.grid3 {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .grid3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Duas colunas: texto à esquerda, conteúdo à direita */
+.split {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 960px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 28rem);
+    align-items: center;
+    gap: var(--space-8);
+  }
+}
+
+/* Como funciona */
+.steps {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  padding: var(--space-5);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.step:first-child {
+  border-color: var(--accent-border);
+  background:
+    radial-gradient(ellipse 80% 80% at 0% 0%, var(--accent-soft), transparent 70%), var(--surface);
+}
+
+.stepNumber {
+  display: block;
+  margin-bottom: var(--space-4);
+  color: var(--accent);
   font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.stepTitle {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-md);
+}
+
+.stepText {
+  color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* FAQ */
+.faqLayout {
+  display: grid;
+  align-items: start;
+  gap: var(--space-2);
+}
+
+@media (min-width: 960px) {
+  .faqLayout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    gap: var(--space-8);
+  }
+}
+
+/* CTA final */
+.ctaBand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  overflow: hidden;
+  padding: var(--space-8) var(--space-5);
+  border: var(--border-width) solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 120%, var(--accent-glow), transparent 70%),
+    var(--surface);
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.ctaText {
+  max-width: 34rem;
+  margin-bottom: var(--space-3);
+  color: var(--text-muted);
+  font-size: var(--text-md);
 }

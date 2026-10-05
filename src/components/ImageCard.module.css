@@ -1,0 +1,110 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  overflow: hidden;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow-card);
+  isolation: isolate;
+  transition: border-color var(--duration-slow) var(--ease);
+}
+
+.image {
+  z-index: -2;
+  object-fit: cover;
+  object-position: 50% 20%;
+  transition: transform 700ms var(--ease);
+}
+
+/* Degradê garante contraste do texto sobre a imagem. */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--bg) 85%, transparent) 30%,
+    transparent 65%
+  );
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+}
+
+.label {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: var(--text-lg);
+  letter-spacing: -0.02em;
+}
+
+.text {
+  color: var(--text-muted);
+}
+
+.card:hover {
+  border-color: var(--accent-border);
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+@media (min-width: 640px) {
+  .card {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Cartão inteiro clicável sem aninhar elementos interativos. */
+.link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.link:focus-visible {
+  box-shadow: none;
+}
+
+.interactive:has(.link:focus-visible) {
+  box-shadow: var(--focus-ring);
+}
+
+.arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--accent);
+  transition: transform var(--duration) var(--ease);
+}
+
+.interactive:hover .arrow {
+  transform: translate(2px, -2px);
+}

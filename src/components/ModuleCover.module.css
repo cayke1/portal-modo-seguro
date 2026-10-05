@@ -1,0 +1,30 @@
+.cover {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 60%, var(--accent-soft), transparent 70%), var(--bg);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 400ms var(--ease);
+}
+
+.dimmed .image {
+  filter: grayscale(0.85) brightness(0.55);
+}
+
+.fallbackIcon {
+  width: 30%;
+  height: 30%;
+  color: var(--accent);
+  filter: drop-shadow(0 0 24px var(--accent-glow));
+}
+
+.dimmed .fallbackIcon {
+  color: var(--text-subtle);
+  filter: none;
+}

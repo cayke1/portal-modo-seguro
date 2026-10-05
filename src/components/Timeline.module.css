@@ -1,0 +1,86 @@
+.timeline {
+  position: relative;
+  display: grid;
+  gap: var(--space-6);
+  padding: 0 0 0 var(--space-6);
+  list-style: none;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: var(--space-2);
+  bottom: var(--space-2);
+  left: 7px;
+  width: 2px;
+  background: linear-gradient(var(--accent), var(--border) 70%);
+}
+
+.item {
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  top: 0.3rem;
+  left: calc(-1 * var(--space-6));
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.highlight .dot {
+  background: var(--accent);
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.label {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.title {
+  margin-block: var(--space-1) var(--space-2);
+  font-size: var(--text-md);
+}
+
+.content {
+  color: var(--text-muted);
+}
+
+.content ul {
+  padding: 0;
+  list-style: none;
+}
+
+.content li + li {
+  margin-top: var(--space-1);
+}
+
+@media (min-width: 960px) {
+  .timeline {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-5);
+    padding: var(--space-6) 0 0;
+  }
+
+  .timeline::before {
+    top: 7px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--border) 80%);
+  }
+
+  .dot {
+    top: calc(-1 * var(--space-6));
+    left: 0;
+  }
+}

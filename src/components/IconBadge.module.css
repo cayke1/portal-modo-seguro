@@ -1,0 +1,25 @@
+.badge {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  border: var(--border-width) solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.md {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius);
+}
+
+.icon {
+  width: 50%;
+  height: 50%;
+}

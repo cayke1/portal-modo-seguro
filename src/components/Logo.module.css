@@ -1,0 +1,52 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mark {
+  width: 1.6em;
+  height: 1.6em;
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+
+.shield {
+  fill: var(--accent);
+}
+
+.prompt {
+  stroke: var(--accent-ink);
+}
+
+.cursor {
+  fill: var(--accent-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cursor {
+    animation: blink 1.2s steps(1) 4; /* pisca poucas vezes (WCAG 2.2.2) */
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+@media print {
+  .mark {
+    filter: none;
+  }
+}

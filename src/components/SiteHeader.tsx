@@ -1,37 +1,22 @@
 import Link from 'next/link'
+import { forms } from '@/lib/env'
+import { materialsNav, primaryNav } from '@/lib/navigation'
+import { Logo } from './Logo'
+import { SiteNav } from './SiteNav'
 import styles from './SiteHeader.module.css'
 
-const NAV_LINKS = [
-  { href: '/modulos', label: 'Módulos' },
-  { href: '/checklist', label: 'Checklist' },
-  { href: '/quiz', label: 'Quiz' },
-  { href: '/cartilha', label: 'Cartilha' },
-  { href: '/live', label: 'Live' },
-  { href: '/perguntas', label: 'Perguntas' },
-  { href: '/sobre', label: 'Sobre' },
-]
-
 export function SiteHeader() {
+  const cta = forms.inscricao
+    ? { href: forms.inscricao, label: 'Inscreva-se' }
+    : { href: '/modulos', label: 'Começar' }
+
   return (
     <header className={`${styles.header} no-print`}>
-      <a href="#conteudo" className={styles.skipLink}>
-        Pular para o conteúdo
-      </a>
       <div className={styles.inner}>
-        <Link href="/" className={styles.brand}>
-          <span aria-hidden="true">&gt;_ </span>Modo Seguro
+        <Link href="/" className={styles.brand} aria-label="Modo Seguro, página inicial">
+          <Logo />
         </Link>
-        <nav aria-label="Principal">
-          <ul className={styles.list}>
-            {NAV_LINKS.map(({ href, label }) => (
-              <li key={href}>
-                <Link href={href} className={styles.link}>
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <SiteNav primary={primaryNav} materials={materialsNav} cta={cta} />
       </div>
     </header>
   )

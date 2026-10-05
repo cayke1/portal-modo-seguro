@@ -1,0 +1,87 @@
+.deck {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Todos os cartões ocupam a mesma célula do grid: a pilha não depende de altura fixa. */
+.stage {
+  display: grid;
+  padding-top: var(--space-6);
+}
+
+.slide {
+  grid-area: 1 / 1;
+  transform-origin: 50% 0%;
+  transition:
+    opacity var(--duration-slow) var(--ease),
+    transform var(--duration-slow) var(--ease);
+}
+
+.slide[data-depth='0'] {
+  z-index: 3;
+  opacity: 1;
+  transform: none;
+}
+
+.slide[data-depth='1'] {
+  z-index: 2;
+  opacity: 0.45;
+  transform: translateY(calc(-1 * var(--space-4))) scale(0.94);
+}
+
+.slide[data-depth='2'] {
+  z-index: 1;
+  opacity: 0.2;
+  transform: translateY(calc(-1 * var(--space-6))) scale(0.88);
+}
+
+.slide[data-depth='3'] {
+  z-index: 0;
+  opacity: 0;
+  transform: translateY(calc(-1 * var(--space-6))) scale(0.84);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+}
+
+/* Área de toque de 44px com o ponto visual pequeno no centro. */
+.dot {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: var(--tap-target);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--border-strong);
+  transition:
+    width var(--duration-slow) var(--ease),
+    background-color var(--duration-slow) var(--ease);
+}
+
+.dot:hover::before {
+  background: var(--text-subtle);
+}
+
+.dot[aria-current='true']::before {
+  width: 22px;
+  background: var(--accent);
+}

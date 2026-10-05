@@ -1,7 +1,9 @@
 'use client'
 
+import { Check, Printer, RotateCcw } from 'lucide-react'
 import { useMemo, useSyncExternalStore } from 'react'
 import type { ChecklistGroup } from '@/lib/checklist'
+import buttonStyles from './Button.module.css'
 import styles from './Checklist.module.css'
 
 type ChecklistProps = {
@@ -64,6 +66,7 @@ export function Checklist({ groups }: ChecklistProps) {
 
   const allIds = groups.flatMap((group) => group.itens.map((item) => item.id))
   const done = allIds.filter((id) => checked.has(id)).length
+  const percent = allIds.length ? Math.round((done / allIds.length) * 100) : 0
 
   function toggle(id: string) {
     const next = new Set(checked)
@@ -75,57 +78,87 @@ export function Checklist({ groups }: ChecklistProps) {
   return (
     <div className={styles.checklist}>
       <div className={`${styles.toolbar} no-print`}>
-        <p className={styles.progress} aria-live="polite">
-          {done} de {allIds.length} feitos
-        </p>
+        <div className={styles.progress}>
+          <p className={styles.progressText} aria-live="polite">
+            <strong>{done}</strong> de {allIds.length} proteções ativadas
+          </p>
+          <div
+            className={styles.bar}
+            role="progressbar"
+            aria-label="Progresso do checklist"
+            aria-valuemin={0}
+            aria-valuemax={allIds.length}
+            aria-valuenow={done}
+          >
+            <span className={styles.barFill} style={{ width: `${percent}%` }} />
+          </div>
+        </div>
         <div className={styles.actions}>
-          <button type="button" className={styles.button} onClick={() => window.print()}>
+          <button
+            type="button"
+            className={`${buttonStyles.button} ${buttonStyles.secondary}`}
+            onClick={() => window.print()}
+          >
+            <Printer className={buttonStyles.icon} aria-hidden="true" />
             Imprimir
           </button>
           <button
             type="button"
-            className={styles.button}
+            className={`${buttonStyles.button} ${buttonStyles.ghost}`}
             onClick={() => writeSnapshot(EMPTY)}
             disabled={done === 0}
           >
+            <RotateCcw className={buttonStyles.icon} aria-hidden="true" />
             Desmarcar tudo
           </button>
         </div>
       </div>
 
-      {groups.map((group) => (
-        <section
-          key={group.modulo}
-          className={styles.group}
-          aria-labelledby={`grupo-${group.modulo}`}
-        >
-          <h2 id={`grupo-${group.modulo}`} className={styles.groupTitle}>
-            {group.titulo}
-          </h2>
-          <ul className={styles.items}>
-            {group.itens.map((item) => (
-              <li key={item.id}>
-                <label className={styles.item}>
-                  <input
-                    type="checkbox"
-                    checked={checked.has(item.id)}
-                    onChange={() => toggle(item.id)}
-                    aria-describedby={item.dica ? `dica-${item.id}` : undefined}
-                  />
-                  <span>
-                    <span className={styles.text}>{item.texto}</span>
-                    {item.dica && (
-                      <span id={`dica-${item.id}`} className={styles.hint}>
-                        {item.dica}
-                      </span>
-                    )}
-                  </span>
-                </label>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+      {groups.map((group) => {
+        const groupDone = group.itens.filter((item) => checked.has(item.id)).length
+        return (
+          <section
+            key={group.modulo}
+            className={styles.group}
+            aria-labelledby={`grupo-${group.modulo}`}
+          >
+            <div className={styles.groupHeader}>
+              <h2 id={`grupo-${group.modulo}`} className={styles.groupTitle}>
+                {group.titulo}
+              </h2>
+              <span className={styles.groupCount}>
+                {groupDone}/{group.itens.length}
+              </span>
+            </div>
+            <ul className={styles.items}>
+              {group.itens.map((item) => (
+                <li key={item.id}>
+                  <label className={styles.item}>
+                    <input
+                      type="checkbox"
+                      className={styles.input}
+                      checked={checked.has(item.id)}
+                      onChange={() => toggle(item.id)}
+                      aria-describedby={item.dica ? `dica-${item.id}` : undefined}
+                    />
+                    <span className={styles.box} aria-hidden="true">
+                      <Check />
+                    </span>
+                    <span>
+                      <span className={styles.text}>{item.texto}</span>
+                      {item.dica && (
+                        <span id={`dica-${item.id}`} className={styles.hint}>
+                          {item.dica}
+                        </span>
+                      )}
+                    </span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      })}
     </div>
   )
 }

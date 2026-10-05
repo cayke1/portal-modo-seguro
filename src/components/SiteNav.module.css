@@ -1,0 +1,192 @@
+/* Mobile first: só o botão de menu. A partir de 960px, navegação completa. */
+.desktop {
+  display: none;
+}
+
+.menuButton {
+  display: inline-grid;
+  place-items: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border: var(--border-width) solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.menuButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Absoluto em relação ao header (o backdrop-filter dele quebraria position: fixed). */
+.drawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: calc(100dvh - var(--header-height));
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-5) var(--gutter) var(--space-7);
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+.drawer[hidden] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .drawer[data-open='true'] {
+    animation: drawer-in 220ms var(--ease);
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.drawerList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  border-bottom: var(--border-width) solid var(--border);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.drawerLink[aria-current='page'] {
+  color: var(--accent);
+}
+
+.drawerArrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--text-subtle);
+}
+
+@media (min-width: 960px) {
+  .menuButton,
+  .drawer {
+    display: none !important;
+  }
+
+  .desktop {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--tap-target);
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+.link:hover {
+  color: var(--text);
+  background: var(--surface-raised);
+}
+
+.link[aria-current='page'],
+.activeGroup {
+  color: var(--text);
+  background: var(--surface-raised);
+}
+
+.chevron {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--duration) var(--ease);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  left: 50%;
+  min-width: 16rem;
+  margin: 0;
+  padding: var(--space-2);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 24px 48px -16px rgb(0 0 0 / 0.7);
+  list-style: none;
+  transform: translateX(-50%);
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panelLink {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.panelLink:hover,
+.panelLink[aria-current='page'] {
+  background: var(--surface-raised);
+}
+
+.panelLabel {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.panelDescription {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}

@@ -1,5 +1,6 @@
 'use client'
 
+import { Play } from 'lucide-react'
 import { useState } from 'react'
 import styles from './VideoEmbed.module.css'
 
@@ -37,12 +38,12 @@ export function VideoEmbed({ id, titulo }: VideoEmbedProps) {
     <div className={`${styles.frame} no-print`}>
       <button type="button" className={styles.placeholder} onClick={() => setLoaded(true)}>
         <span className={styles.play} aria-hidden="true">
-          ▶
+          <Play />
         </span>
-        <span>
+        <span className={styles.label}>
           Assistir à microaula<span className="sr-only">: {titulo}</span>
         </span>
-        <span className={styles.note}>O vídeo abre do YouTube, com legendas.</span>
+        <span className={styles.note}>Abre o player do YouTube, com legendas.</span>
       </button>
     </div>
   )

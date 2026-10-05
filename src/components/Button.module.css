@@ -1,0 +1,83 @@
+/* Compartilhado por <ButtonLink> e por botões dos componentes cliente (composes). */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap-target);
+  padding: var(--space-2) var(--space-5);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.lg {
+  min-height: 52px;
+  padding-inline: var(--space-6);
+  font-size: var(--text-md);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 0 24px -8px var(--accent-glow);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  box-shadow: 0 0 32px -4px var(--accent-glow);
+}
+
+.secondary {
+  border-color: var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.secondary:hover:not(:disabled) {
+  border-color: var(--accent-border);
+  background: var(--surface-raised);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--surface-raised);
+}
+
+.icon {
+  flex: none;
+  width: 1.125em;
+  height: 1.125em;
+}
+
+.iconEnd {
+  transition: transform var(--duration) var(--ease);
+}
+
+.button:hover .iconEnd {
+  transform: translateX(2px);
+}

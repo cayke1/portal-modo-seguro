@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs'
+import path from 'node:path'
 import type { MDXContent } from 'mdx/types'
 import { registro } from '@content/modulos'
 import { contentError, isNonEmptyString, isPositiveInteger, isRecord } from './validation'
@@ -13,7 +15,8 @@ export type ModuloMeta = {
   publicado: boolean
 }
 
-export type Modulo = ModuloMeta & { Content: MDXContent }
+/** `capa`: caminho público de public/capas/{slug}.jpg, ou null se a imagem não existir. */
+export type Modulo = ModuloMeta & { capa: string | null; Content: MDXContent }
 
 /** Entrada de content/modulos/index.ts. O `meta` é validado aqui. */
 export type RegistroModulo = { file: string; meta: unknown; Content: MDXContent }
@@ -38,9 +41,17 @@ function parseMeta(file: string, meta: unknown): ModuloMeta {
   return { slug, ordem, semana, titulo, resumo, videoId, duracaoVideo, publicado }
 }
 
+function findCover(slug: string): string | null {
+  const src = `/capas/${slug}.jpg`
+  return existsSync(path.join(process.cwd(), 'public', src)) ? src : null
+}
+
 function buildModulos(): Modulo[] {
   const modulos = registro
-    .map(({ file, meta, Content }) => ({ ...parseMeta(file, meta), Content }))
+    .map(({ file, meta, Content }) => {
+      const parsed = parseMeta(file, meta)
+      return { ...parsed, capa: findCover(parsed.slug), Content }
+    })
     .sort((a, b) => a.ordem - b.ordem)
 
   const slugs = new Set<string>()
@@ -70,6 +81,9 @@ export function getPublishedModulo(slug: string): Modulo | undefined {
   return modulos.find((modulo) => modulo.slug === slug && modulo.publicado)
 }
 
-export function getModuloTitle(slug: string): string | undefined {
-  return modulos.find((modulo) => modulo.slug === slug)?.titulo
+/** Módulos publicados vizinhos, para a navegação anterior/próximo. */
+export function getAdjacentModulos(slug: string): { prev?: Modulo; next?: Modulo } {
+  const published = listPublishedModulos()
+  const index = published.findIndex((modulo) => modulo.slug === slug)
+  return { prev: published[index - 1], next: published[index + 1] }
 }

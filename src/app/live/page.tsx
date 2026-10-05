@@ -1,11 +1,15 @@
+import { CalendarDays, Radio } from 'lucide-react'
 import type { Metadata } from 'next'
 import liveData from '@content/live.json'
+import { Container } from '@/components/Container'
+import { EmptyState } from '@/components/EmptyState'
+import { PageHeader } from '@/components/PageHeader'
 import { VideoEmbed } from '@/components/VideoEmbed'
 import { isNonEmptyString } from '@/lib/validation'
-import styles from '../page.module.css'
 
 export const metadata: Metadata = {
   title: 'Live de encerramento',
+  description: 'Gravação da live de encerramento do Modo Seguro.',
 }
 
 export default function LivePage() {
@@ -14,21 +18,23 @@ export default function LivePage() {
 
   return (
     <>
-      <h1>Live de encerramento</h1>
-      <p className={styles.intro}>
-        Uma conversa ao vivo para revisar os 5 módulos e responder às perguntas da turma.
-      </p>
-      {isNonEmptyString(videoId) ? (
-        <div className={styles.prose}>
+      <PageHeader
+        eyebrow={isNonEmptyString(data) ? data : 'Semana 4'}
+        eyebrowIcon={Radio}
+        title="Live de encerramento"
+        lead="Uma conversa ao vivo para revisar os cinco módulos e responder às perguntas da turma. Quem não puder assistir ao vivo encontra a gravação aqui."
+      />
+      <Container size="narrow">
+        {isNonEmptyString(videoId) ? (
           <VideoEmbed id={videoId} titulo="Live de encerramento" />
-        </div>
-      ) : (
-        <p className={styles.muted}>
-          {isNonEmptyString(data)
-            ? `A live acontece em ${data}. A gravação fica disponível aqui depois.`
-            : 'A gravação da live fica disponível aqui na semana 4.'}
-        </p>
-      )}
+        ) : (
+          <EmptyState icon={CalendarDays} title="A gravação aparece aqui depois da live">
+            {isNonEmptyString(data)
+              ? `A live acontece em ${data}. Inscritos recebem o link por e-mail.`
+              : 'A data sai junto com o último módulo. Inscritos recebem o link por e-mail.'}
+          </EmptyState>
+        )}
+      </Container>
     </>
   )
 }

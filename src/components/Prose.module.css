@@ -1,0 +1,71 @@
+.prose {
+  max-width: var(--measure);
+  color: var(--text-muted);
+  font-size: var(--text-md);
+}
+
+.prose > * + * {
+  margin-top: var(--space-5);
+}
+
+.prose > h2 {
+  margin-top: var(--space-8);
+  color: var(--text);
+  font-size: var(--text-xl);
+  letter-spacing: -0.02em;
+}
+
+.prose > h3 {
+  margin-top: var(--space-6);
+  color: var(--text);
+  font-size: var(--text-lg);
+}
+
+.prose > h2 + *,
+.prose > h3 + * {
+  margin-top: var(--space-3);
+}
+
+.prose strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: var(--space-5);
+}
+
+.prose li + li {
+  margin-top: var(--space-2);
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.prose a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.prose code {
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  background: var(--surface-raised);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.prose blockquote {
+  margin-inline: 0;
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+}
+
+.prose hr {
+  border: 0;
+  border-top: var(--border-width) solid var(--border);
+}

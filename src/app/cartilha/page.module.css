@@ -1,0 +1,74 @@
+.layout {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.card,
+.download {
+  padding: var(--space-6) var(--space-5);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.cardTitle {
+  margin-bottom: var(--space-4);
+  font-size: var(--text-lg);
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  border-top: var(--border-width) solid var(--border);
+  color: var(--text-muted);
+}
+
+.list svg {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--accent);
+}
+
+.download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  border-color: var(--accent-border);
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 0%, var(--accent-soft), transparent 70%), var(--surface);
+  text-align: center;
+}
+
+.fileIcon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-2);
+  color: var(--accent);
+}
+
+.fileName {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.fileMeta {
+  margin-bottom: var(--space-4);
+  color: var(--text-subtle);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 960px) {
+  .layout {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}

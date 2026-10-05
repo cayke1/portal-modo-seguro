@@ -1,16 +1,44 @@
 .convite {
-  margin: var(--space-6) 0 0;
-  padding: var(--space-4);
-  border: var(--border-width) dashed var(--border);
-  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  padding: var(--space-6) var(--space-5);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse 70% 90% at 0% 0%, var(--accent-soft), transparent 60%), var(--surface);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  color: var(--text-muted);
 }
 
 .title {
-  margin-top: 0;
+  color: var(--text);
   font-size: var(--text-lg);
 }
 
-.muted {
-  margin-bottom: 0;
-  color: var(--text-muted);
+.soon {
+  color: var(--text-subtle);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 640px) {
+  .convite {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: var(--space-4) var(--space-5);
+    padding: var(--space-6);
+  }
+
+  .convite > :last-child {
+    grid-column: 2;
+    justify-self: start;
+  }
 }

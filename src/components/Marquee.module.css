@@ -1,0 +1,68 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.marquee {
+  overflow: hidden;
+  padding-block: var(--space-2);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+
+.marquee:hover .track,
+.marquee:focus-within .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0 var(--space-4) 0 0;
+  list-style: none;
+}
+
+.group > li {
+  display: flex;
+  flex: none;
+  width: min(78vw, 320px);
+}
+
+.group > li > * {
+  width: 100%;
+}
+
+/* A trilha tem 3 grupos iguais: andar 1/3 volta exatamente ao começo. */
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+/* Sem animação: rolagem horizontal manual, sem a cópia. */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+
+  .marquee {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .group > li {
+    scroll-snap-align: start;
+  }
+
+  .clone {
+    display: none;
+  }
+}
