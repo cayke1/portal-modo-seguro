@@ -1,0 +1,76 @@
+/* Estilos compartilhados pelas páginas de conteúdo. */
+.intro {
+  max-width: var(--measure);
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.eyebrow {
+  margin-bottom: var(--space-2);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: var(--border-width) solid var(--border);
+}
+
+.timeline > li {
+  position: relative;
+  padding: 0 0 var(--space-4) var(--space-4);
+}
+
+.timeline > li::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-1) - var(--border-width) / 2);
+  top: var(--space-2);
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline h3 {
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-base);
+}
+
+.timeline ul {
+  margin: 0;
+  padding-left: var(--space-4);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  font-family: var(--font-mono);
+}

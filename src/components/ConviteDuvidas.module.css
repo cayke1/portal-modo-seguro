@@ -1,0 +1,16 @@
+.convite {
+  margin: var(--space-6) 0 0;
+  padding: var(--space-4);
+  border: var(--border-width) dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.title {
+  margin-top: 0;
+  font-size: var(--text-lg);
+}
+
+.muted {
+  margin-bottom: 0;
+  color: var(--text-muted);
+}

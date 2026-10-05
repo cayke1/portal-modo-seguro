@@ -1,0 +1,15 @@
+.footer {
+  margin-top: var(--space-6);
+  border-top: var(--border-width) solid var(--border);
+  color: var(--text-muted);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-3);
+}
+
+.inner p:last-child {
+  margin-bottom: 0;
+}

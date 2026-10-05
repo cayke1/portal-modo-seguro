@@ -1,0 +1,54 @@
+.card {
+  position: relative;
+  padding: var(--space-4);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.card:hover:not(.locked) {
+  border-color: var(--accent);
+}
+
+.card:has(.link:focus-visible) {
+  outline: var(--focus-width) solid var(--accent);
+  outline-offset: 2px;
+}
+
+.card > :last-child {
+  margin-bottom: 0;
+}
+
+.locked {
+  border-style: dashed;
+}
+
+.eyebrow,
+.status {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.eyebrow {
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+}
+
+.link {
+  color: var(--text);
+}
+
+/* Card inteiro clicável, sem aninhar elementos interativos. */
+.link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.link:focus-visible {
+  outline: none;
+}

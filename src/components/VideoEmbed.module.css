@@ -1,0 +1,55 @@
+.frame {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  margin: 0 0 var(--space-4);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: 100%;
+  padding: var(--space-3);
+  border: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  cursor: pointer;
+}
+
+.placeholder:hover .play {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.play {
+  display: grid;
+  place-items: center;
+  width: calc(var(--tap-target) * 1.5);
+  height: calc(var(--tap-target) * 1.5);
+  border: var(--focus-width) solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: var(--text-xl);
+}
+
+.note {
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+}
