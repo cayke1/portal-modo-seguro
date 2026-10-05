@@ -1,0 +1,8 @@
+# Equipe Portal revisa código e configuração.
+# Troque <usuario-github-yudi> pelo usuário do Lucas Yudi.
+
+/src/                @cayke1 @<usuario-github-yudi>
+/content/modulos/index.ts  @cayke1 @<usuario-github-yudi>
+/.github/            @cayke1 @<usuario-github-yudi>
+/package.json        @cayke1 @<usuario-github-yudi>
+/next.config.*       @cayke1 @<usuario-github-yudi>
