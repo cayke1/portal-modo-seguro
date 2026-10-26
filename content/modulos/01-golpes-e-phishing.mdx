@@ -11,26 +11,72 @@ export const meta = {
 
 <VideoEmbed id={meta.videoId} titulo={meta.titulo} />
 
-{/* Rascunho. Siga a estrutura de docs/guia-de-conteudo.md. */}
-
 ## Por que isso importa
 
-Em produção.
+Chega um SMS: "Sua encomenda está retida. Pague a taxa de R$ 4,90 para liberar". Tem um link, o valor é pequeno e você está mesmo esperando uma compra. Em menos de um minuto, a pessoa clica, digita os dados do cartão numa página que parece a dos Correios e só descobre o golpe quando a fatura chega.
+
+Esse tipo de golpe tem nome: **phishing** (lê-se "físhing", de *fishing*, pescar). O golpista joga uma isca (uma mensagem, um link, uma ligação) e espera alguém morder. Ele não precisa invadir nada. Quem entrega a senha, o código ou o Pix é a própria vítima, porque foi enganada.
+
+A boa notícia: quase todo golpe usa os mesmos truques. Quem aprende a reconhecer esses truques passa a desconfiar no momento certo, antes de clicar.
 
 ## Como funciona
 
-Em produção.
+Um golpe de phishing quase sempre combina três ingredientes.
+
+**1. Alguém em quem você confia.** A mensagem finge vir do banco, dos Correios, da escola, de uma loja, do iFood, do gov.br ou de um amigo. Logotipo, nome e linguagem são copiados. No golpe do "número novo", alguém manda no WhatsApp: "Oi, troquei de número, salva aí", com a foto de perfil de um parente tirada das redes sociais.
+
+**2. Pressa ou medo.** "Sua conta será bloqueada em 2 horas." "Detectamos uma compra de R$ 2.000, foi você?" "Última chance de resgatar seu prêmio." A pressa serve para você agir antes de pensar.
+
+**3. Um pedido.** No fim, a mensagem sempre quer que você faça alguma coisa: clicar num link, digitar senha, passar o código que chegou por SMS, fazer um Pix, baixar um aplicativo ou instalar um "programa de suporte".
+
+<Callout tipo="exemplo">
+
+**Golpes comuns hoje:**
+
+- **Falsa central do banco:** liga dizendo que houve uma compra suspeita e pede para você "confirmar" dados ou fazer um Pix para uma "conta segura". Conta segura não existe.
+- **Número novo / parente pedindo dinheiro:** mensagem no WhatsApp com a foto de alguém conhecido pedindo um Pix urgente.
+- **Taxa de entrega:** SMS ou e-mail cobrando uma taxinha para liberar encomenda.
+- **Código do WhatsApp:** alguém pede "o código que chegou aí por engano". Com ele, a pessoa clona sua conta.
+- **Promoção e emprego fácil:** prêmio, cupom, "renda extra curtindo vídeos" que no fim pede um pagamento para começar.
+- **Loja falsa:** site ou perfil com preço bom demais, que só aceita Pix e nunca entrega.
+
+</Callout>
+
+### Como checar um link
+
+Antes de clicar, olhe o endereço com calma. Golpistas usam endereços parecidos com os verdadeiros: `correios-rastreio.com`, `banco-seguro-app.net`, `itau.com.atendimento-online.xyz`. O que vale é o nome logo antes da primeira barra `/`, lido da direita para a esquerda. Em `itau.com.atendimento-online.xyz`, o site de verdade é `atendimento-online.xyz`, e não o Itaú.
+
+O cadeado na barra do navegador **não** prova que o site é confiável. Ele só mostra que a conexão é criptografada. Site falso também tem cadeado.
+
+Na dúvida, não use o link da mensagem. Abra o aplicativo oficial ou digite você mesmo o endereço do site.
+
+### Por que o golpe funciona
+
+O golpe não depende de a vítima ser "burra". Ele funciona porque explora reações normais: querer resolver logo, ajudar um parente, não perder uma oportunidade. Por isso o melhor hábito é simples: **quando uma mensagem pede algo com pressa, pare e confira por outro caminho.**
 
 ## O que fazer agora
 
 <Callout tipo="dica">
 
-- Em produção.
+- **Desconfie da pressa.** Mensagem urgente pedindo senha, código ou Pix é sinal de alerta.
+- **Confira por outro canal.** Ligue para o número que você já tinha do parente, ou abra o app oficial do banco. Não responda pelo mesmo contato que pediu.
+- **Nunca passe códigos** que chegam por SMS ou WhatsApp. Nenhuma empresa séria pede esse código.
+- **Banco não pede senha, não pede Pix para "conta segura" e não manda buscar cartão em casa.** Se ligaram dizendo isso, desligue e ligue você para o número do verso do cartão.
+- **Não clique em link de mensagem inesperada.** Vá direto pelo app ou site oficial.
+- **Combine uma palavra-código com a família** para confirmar pedidos de dinheiro por mensagem.
+
+</Callout>
+
+<Callout tipo="alerta">
+
+Caiu em algum golpe? Não sinta vergonha e aja rápido. O módulo 5, **O que fazer depois de um golpe**, mostra o passo a passo.
 
 </Callout>
 
 ## Fontes
 
-- Em produção.
+- [Cartilha de Segurança para Internet – CERT.br](https://cartilha.cert.br/)
+- [Fascículos da Cartilha (Golpes na Internet, Boatos, Phishing) – CERT.br](https://cartilha.cert.br/fasciculos/)
+- [Pix – Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/pix)
 
 <ConviteDuvidas />

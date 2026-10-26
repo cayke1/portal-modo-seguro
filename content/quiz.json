@@ -1,4 +1,195 @@
 {
   "versao": 1,
-  "perguntas": []
+  "perguntas": [
+    {
+      "id": "golpes-1",
+      "modulo": "golpes-e-phishing",
+      "enunciado": "Chega um SMS: \"Sua encomenda está retida. Pague a taxa de R$ 4,90 em correios-liberacao.com para não ser devolvida.\" Você está esperando uma compra. O que fazer?",
+      "alternativas": [
+        "Pagar, porque o valor é baixo e vale o risco",
+        "Clicar no link só para ver se o site parece verdadeiro",
+        "Ignorar o link e conferir o rastreio no app ou no site oficial da loja ou dos Correios",
+        "Responder o SMS perguntando se é verdade"
+      ],
+      "correta": 2,
+      "comentario": "Pressa, valor pequeno e link são a combinação clássica do phishing. O site falso não quer os R$ 4,90, quer os dados do seu cartão. Confira sempre pelo canal oficial, digitando você mesmo o endereço ou abrindo o app."
+    },
+    {
+      "id": "golpes-2",
+      "modulo": "golpes-e-phishing",
+      "enunciado": "Você recebe uma ligação de alguém dizendo ser da central do seu banco. Ele cita seu nome e CPF, diz que houve uma compra suspeita e pede que você transfira seu saldo para uma \"conta segura\". O que está acontecendo?",
+      "alternativas": [
+        "É o banco protegendo seu dinheiro, já que ele sabe seu CPF",
+        "É golpe: banco não pede transferência para conta segura. Desligue e ligue você para o número do verso do cartão",
+        "É seguro se você transferir só metade do saldo",
+        "É seguro se a pessoa passar o número de protocolo"
+      ],
+      "correta": 1,
+      "comentario": "Conta segura não existe. Saber seu nome e CPF não prova nada, porque esses dados vazam com frequência. A regra é desligar e ligar você mesmo para um número oficial."
+    },
+    {
+      "id": "golpes-3",
+      "modulo": "golpes-e-phishing",
+      "enunciado": "Qual destes endereços é realmente do site gov.br?",
+      "alternativas": [
+        "gov.br.servicos-online.com/login",
+        "acesso-gov-br.net/cpf",
+        "sso.acesso.gov.br/login",
+        "govbr.app/regularizar"
+      ],
+      "correta": 2,
+      "comentario": "O que manda é o domínio logo antes da primeira barra, lido da direita para a esquerda. Em sso.acesso.gov.br o domínio é gov.br. Em gov.br.servicos-online.com o site de verdade é servicos-online.com, mesmo começando com gov.br."
+    },
+    {
+      "id": "senhas-1",
+      "modulo": "senhas",
+      "enunciado": "Qual destas senhas é a mais forte?",
+      "alternativas": ["S3nh@2026", "Flamengo10!", "girafa-panela-chuva-violão-29", "Ana12345"],
+      "correta": 2,
+      "comentario": "O que mais pesa na força de uma senha é o tamanho. Uma senha-frase com palavras sem relação é longa e não está em listas de senhas comuns. Trocar letras por símbolos, como em S3nh@, não engana os programas de adivinhação."
+    },
+    {
+      "id": "senhas-2",
+      "modulo": "senhas",
+      "enunciado": "Um site de jogos onde você tinha conta foi invadido e as senhas vazaram. Você usava a mesma senha no Instagram e no e-mail. Qual é o maior risco?",
+      "alternativas": [
+        "Nenhum, porque o vazamento foi só no site de jogos",
+        "Criminosos testarem a mesma senha no Instagram, no e-mail e em outros serviços",
+        "Perder o progresso no jogo",
+        "O celular pegar vírus"
+      ],
+      "correta": 1,
+      "comentario": "Criminosos testam automaticamente as senhas vazadas em vários serviços. Por isso repetir senha é tão perigoso: uma conta vazada abre as outras. Troque a senha em todos os lugares onde ela se repetia."
+    },
+    {
+      "id": "senhas-3",
+      "modulo": "senhas",
+      "enunciado": "Qual é a forma mais segura de guardar muitas senhas diferentes?",
+      "alternativas": [
+        "Num print na galeria do celular",
+        "Numa conversa do WhatsApp com você mesmo",
+        "Num gerenciador de senhas, protegido por uma senha-mestra forte",
+        "Usando a mesma senha em tudo para não esquecer"
+      ],
+      "correta": 2,
+      "comentario": "O gerenciador cria e guarda senhas fortes e só preenche no site certo, o que ainda ajuda contra sites falsos. Prints e conversas ficam expostos para quem pegar seu celular ou sua conta."
+    },
+    {
+      "id": "2fa-1",
+      "modulo": "autenticacao-em-dois-fatores",
+      "enunciado": "Um amigo manda no WhatsApp: \"Mandei um código de 6 dígitos para você por engano, me passa aí?\" O que fazer?",
+      "alternativas": [
+        "Passar, já que é um amigo",
+        "Não passar: é a tentativa de clonar seu WhatsApp. Ligue para o amigo para confirmar",
+        "Passar só os 3 primeiros números",
+        "Encaminhar o SMS em vez de digitar"
+      ],
+      "correta": 1,
+      "comentario": "O código que chega por SMS é o que libera seu WhatsApp em outro celular. A conta do amigo provavelmente já foi clonada e o golpista está tentando a sua. Código de verificação é só para você usar."
+    },
+    {
+      "id": "2fa-2",
+      "modulo": "autenticacao-em-dois-fatores",
+      "enunciado": "Você ativou a verificação em duas etapas no e-mail e, de madrugada, chega uma notificação: \"É você tentando entrar?\". Você não tentou entrar. O que isso significa?",
+      "alternativas": [
+        "Erro do sistema, pode aprovar para a notificação sumir",
+        "Alguém tem sua senha, mas a segunda etapa barrou. Toque em Não e troque a senha",
+        "Sua conta já foi invadida e não há nada a fazer",
+        "Que é hora de desativar a verificação em duas etapas"
+      ],
+      "correta": 1,
+      "comentario": "A verificação em duas etapas fez exatamente o trabalho dela: a senha vazou, mas o invasor parou na segunda porta. Recuse e troque a senha, porque ela não é mais secreta."
+    },
+    {
+      "id": "2fa-3",
+      "modulo": "autenticacao-em-dois-fatores",
+      "enunciado": "Entre estas opções de segunda etapa, qual é a mais fraca?",
+      "alternativas": [
+        "Código por SMS",
+        "App autenticador",
+        "Chave de acesso (passkey) com digital ou rosto",
+        "Chave de segurança física"
+      ],
+      "correta": 0,
+      "comentario": "SMS é melhor que nada, mas o golpista pode convencer você a passar o código ou transferir seu número para outro chip. App autenticador e chave de acesso ficam presos ao seu aparelho."
+    },
+    {
+      "id": "privacidade-1",
+      "modulo": "privacidade-e-dados-pessoais",
+      "enunciado": "Seu perfil é aberto e você posta stories com a localização em tempo real, marcando sua mãe. Que golpe isso pode facilitar?",
+      "alternativas": [
+        "Nenhum, porque são só fotos",
+        "Um golpista saber quem é sua família e que você está fora, e mandar mensagem para sua mãe fingindo ser você",
+        "O Instagram cobrar uma taxa",
+        "Seu celular ficar mais lento"
+      ],
+      "correta": 1,
+      "comentario": "Informações que parecem inofensivas, juntas, deixam a mensagem do golpista convincente. Perfil privado, lista de seguidores escondida e postar depois de sair do lugar reduzem muito esse risco."
+    },
+    {
+      "id": "privacidade-2",
+      "modulo": "privacidade-e-dados-pessoais",
+      "enunciado": "Circula um jogo: \"Seu nome de artista é o nome do seu primeiro pet + a rua onde você cresceu. Comente o seu!\" Por que evitar?",
+      "alternativas": [
+        "Porque o jogo é chato",
+        "Porque essas são respostas comuns de perguntas de segurança usadas para recuperar contas",
+        "Porque comentários deixam o perfil público",
+        "Não há problema nenhum em responder"
+      ],
+      "correta": 1,
+      "comentario": "Nome do pet, rua e nome da mãe são respostas clássicas de perguntas de segurança. Esses jogos coletam exatamente esses dados."
+    },
+    {
+      "id": "privacidade-3",
+      "modulo": "privacidade-e-dados-pessoais",
+      "enunciado": "Pela LGPD, você quer saber quais dados seus uma loja on-line guarda. Qual é o primeiro passo?",
+      "alternativas": [
+        "Não há como saber, a loja não é obrigada a informar",
+        "Pedir à própria loja, pelo canal de privacidade indicado na política de privacidade",
+        "Ir direto à delegacia",
+        "Apagar o aplicativo da loja"
+      ],
+      "correta": 1,
+      "comentario": "A LGPD garante ao titular o direito de saber quais dados a empresa tem. O pedido vai primeiro para a empresa, pelo canal do encarregado de dados. Sem resposta, dá para reclamar na ANPD."
+    },
+    {
+      "id": "depois-1",
+      "modulo": "depois-de-um-golpe",
+      "enunciado": "Você fez um Pix para um golpista que fingia ser seu parente. Qual é o primeiro passo?",
+      "alternativas": [
+        "Esperar alguns dias para ver se o golpista devolve",
+        "Contestar o Pix no app do banco o quanto antes",
+        "Mandar mensagem para o golpista pedindo o dinheiro de volta",
+        "Apagar a conversa para esquecer o assunto"
+      ],
+      "correta": 1,
+      "comentario": "O Mecanismo Especial de Devolução (MED) do Banco Central permite bloquear e devolver valores de golpe, e a contestação pode ser feita na área Pix do app. Quanto mais rápido, maior a chance de ainda haver dinheiro na conta do golpista. E não apague a conversa: ela é prova."
+    },
+    {
+      "id": "depois-2",
+      "modulo": "depois-de-um-golpe",
+      "enunciado": "Seu WhatsApp foi clonado e o golpista está pedindo dinheiro aos seus contatos. O que fazer primeiro?",
+      "alternativas": [
+        "Criar outra conta com outro número e deixar a antiga",
+        "Reinstalar ou abrir o WhatsApp no seu celular e confirmar o número, avisar os contatos por outro canal e depois ativar a confirmação em duas etapas",
+        "Esperar o golpista desistir",
+        "Trocar a foto de perfil"
+      ],
+      "correta": 1,
+      "comentario": "Confirmar o número no seu aparelho desconecta o golpista. Avisar os contatos impede novas vítimas, e o PIN da confirmação em duas etapas evita que aconteça de novo."
+    },
+    {
+      "id": "depois-3",
+      "modulo": "depois-de-um-golpe",
+      "enunciado": "Antes de bloquear o golpista no WhatsApp, o que vale a pena fazer?",
+      "alternativas": [
+        "Xingar o golpista",
+        "Tirar prints da conversa, do número e da chave Pix usada, para o BO e para o banco",
+        "Nada, bloquear o quanto antes é o mais importante",
+        "Mandar o próprio CPF para provar que você é a vítima"
+      ],
+      "correta": 1,
+      "comentario": "Depois de bloquear ou apagar, as provas podem sumir. Prints da conversa, número, perfil e comprovantes ajudam no boletim de ocorrência e na contestação com o banco."
+    }
+  ]
 }

@@ -11,26 +11,74 @@ export const meta = {
 
 <VideoEmbed id={meta.videoId} titulo={meta.titulo} />
 
-{/* Rascunho. Siga a estrutura de docs/guia-de-conteudo.md. */}
-
 ## Por que isso importa
 
-Em produção.
+Pense em quantas contas você tem: e-mail, Instagram, WhatsApp, TikTok, jogos, a plataforma da escola ou da faculdade, o app do banco. Agora pense em quantas senhas diferentes você usa. Para muita gente, a resposta é "umas duas ou três, com pequenas variações".
+
+O problema é que sites são invadidos o tempo todo, e listas com milhões de e-mails e senhas acabam vazando na internet. Quando isso acontece com um fórum de jogo que você nem usa mais, os criminosos testam a mesma combinação de e-mail e senha no Instagram, no Gmail e no banco. Se você repete senha, uma conta vazada abre todas as outras. Esse ataque é tão comum que tem nome: **credential stuffing** (algo como "recheio de credenciais").
+
+Ter uma senha diferente e forte para cada conta parece impossível de decorar. E é mesmo. A solução não é ter memória melhor, é usar as ferramentas certas.
 
 ## Como funciona
 
-Em produção.
+### O que deixa uma senha fraca
+
+Senhas fracas são as que um programa adivinha rápido. Os criminosos não tentam letra por letra: eles testam primeiro as senhas mais usadas e as variações óbvias. Por isso são fracas:
+
+- sequências e palavras comuns: `123456`, `senha123`, `qwerty`, `brasil2026`;
+- dados pessoais: seu nome, o nome do pet, data de nascimento, time de futebol;
+- truques previsíveis: trocar `a` por `@` e `o` por `0` (`s3nh@`) não engana programa nenhum;
+- qualquer senha que você já usa em outro lugar.
+
+### O que deixa uma senha forte
+
+O que mais pesa é o **tamanho**. Cada caractere a mais multiplica o número de combinações. Uma frase longa e aleatória é muito mais difícil de adivinhar que uma palavra curta cheia de símbolos, e ainda é mais fácil de lembrar.
+
+<Callout tipo="exemplo">
+
+**Senha-frase:** junte 4 ou 5 palavras que não têm relação entre si, como `girafa-panela-chuva-violão-29`.
+
+Ela é longa, não está em nenhuma lista de senhas comuns e dá para lembrar imaginando uma girafa cozinhando na chuva enquanto toca violão. Use esse tipo de senha nas poucas que você precisa digitar de cabeça: a do celular, a do e-mail principal e a do gerenciador de senhas.
+
+</Callout>
+
+### Gerenciador de senhas: o cofre
+
+Um **gerenciador de senhas** é um aplicativo que cria e guarda senhas fortes para você. Você decora uma única senha-mestra, forte, e ele lembra todo o resto. Ele também preenche a senha automaticamente no site certo, o que ajuda contra phishing: num site falso, o gerenciador não reconhece o endereço e não preenche nada.
+
+Você provavelmente já tem um. O Google Chrome e o Android têm o **Gerenciador de Senhas do Google**, e o iPhone tem o app **Senhas** (ou Chaves do iCloud). Também existem apps dedicados, como o Bitwarden, que tem versão gratuita.
+
+<Callout tipo="alerta">
+
+Não guarde senhas no bloco de notas, num print na galeria ou numa conversa do WhatsApp com você mesmo. Se alguém pegar seu celular ou sua conta, encontra tudo de uma vez.
+
+</Callout>
+
+### Sua senha já vazou?
+
+O site [Have I Been Pwned](https://haveibeenpwned.com/) mostra se o seu e-mail apareceu em vazamentos conhecidos. Os gerenciadores do Google e da Apple também avisam quando uma senha salva apareceu num vazamento ou se repete em várias contas. Se aparecer alerta, troque aquela senha (e todas as contas onde você usava a mesma).
+
+### A senha mais importante: a do e-mail
+
+Seu e-mail é a chave mestra. É por ele que se recupera a senha de quase tudo. Quem entra no seu e-mail consegue pedir "esqueci minha senha" no Instagram, no banco e no resto. Por isso o e-mail merece a senha mais forte e a proteção extra do próximo módulo.
 
 ## O que fazer agora
 
 <Callout tipo="dica">
 
-- Em produção.
+- **Crie uma senha-frase forte** para o seu e-mail principal e troque a atual.
+- **Ative o gerenciador de senhas** do seu celular (Google ou Apple) e deixe ele salvar as senhas.
+- **Rode a verificação de senhas** do gerenciador e troque as que aparecerem como vazadas ou repetidas, começando por e-mail, banco e redes sociais.
+- **Pare de repetir senha.** Cada conta nova ganha uma senha gerada pelo gerenciador.
+- **Coloque senha ou biometria no celular.** Ele guarda o acesso a todas as suas contas.
+- **Não compartilhe senhas** com amigos, nem "só para entrar uma vez".
 
 </Callout>
 
 ## Fontes
 
-- Em produção.
+- [Cartilha de Segurança para Internet – CERT.br](https://cartilha.cert.br/)
+- [Fascículos da Cartilha (Senhas, Vazamento de dados) – CERT.br](https://cartilha.cert.br/fasciculos/)
+- [Have I Been Pwned](https://haveibeenpwned.com/)
 
 <ConviteDuvidas />

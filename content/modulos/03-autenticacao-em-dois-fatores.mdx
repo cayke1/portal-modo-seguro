@@ -1,7 +1,7 @@
 export const meta = {
   slug: 'autenticacao-em-dois-fatores',
   ordem: 3,
-  semana: 2,
+  semana: 1,
   titulo: 'Autenticação em dois fatores',
   resumo: 'Por que uma segunda etapa de verificação protege sua conta mesmo se a senha vazar.',
   videoId: 'ID_DO_YOUTUBE',
@@ -11,26 +11,73 @@ export const meta = {
 
 <VideoEmbed id={meta.videoId} titulo={meta.titulo} />
 
-{/* Rascunho. Siga a estrutura de docs/guia-de-conteudo.md. */}
-
 ## Por que isso importa
 
-Em produção.
+No módulo anterior você viu que senhas vazam. Mesmo uma senha forte pode cair num site falso ou num vazamento que não é culpa sua. Se a senha é a única coisa protegendo a conta, quem tiver a senha entra.
+
+A **autenticação em dois fatores** (também chamada de **verificação em duas etapas** ou **2FA**) coloca uma segunda tranca. Além da senha, a conta pede uma prova extra que só você tem, normalmente algo no seu celular. Assim, mesmo que alguém descubra sua senha, ele para na segunda porta.
+
+É uma das proteções que mais funcionam e uma das mais fáceis de ativar. Leva uns cinco minutos por conta.
 
 ## Como funciona
 
-Em produção.
+"Fator" é um tipo de prova de que você é você. Existem três tipos:
+
+- **algo que você sabe:** senha ou PIN;
+- **algo que você tem:** seu celular, um app de códigos, uma chave de segurança;
+- **algo que você é:** digital, rosto.
+
+Com dois fatores, a conta pede duas provas de tipos diferentes. O golpista que roubou sua senha (algo que você sabe) ainda precisaria estar com o seu celular (algo que você tem).
+
+### Os tipos de segunda etapa, do mais fraco ao mais forte
+
+1. **Código por SMS.** Melhor que nada, mas é o mais fraco: o golpista pode convencer você a passar o código, ou até transferir seu número para outro chip.
+2. **App autenticador.** Apps como Google Authenticator ou Microsoft Authenticator geram um código novo a cada 30 segundos, direto no celular, sem depender do chip. É a opção recomendada para a maioria das contas.
+3. **Notificação de aprovação.** O app da empresa (Google, Microsoft, banco) pergunta "É você tentando entrar?" e você toca em Sim ou Não. Prático, mas só aprove se **você** acabou de tentar entrar.
+4. **Chave de acesso (passkey).** Substitui a senha por uma confirmação com a digital ou o rosto no seu celular. Não dá para "passar" a chave para um site falso. Google, Apple, Microsoft e outros já oferecem.
+
+<Callout tipo="alerta">
+
+**A regra de ouro:** o código ou a aprovação da segunda etapa é **só para você usar**. Se alguém pede o código ("chegou um código aí por engano, me passa?"), é golpe. Se chega uma notificação de login que você não pediu, toque em **Não** e troque a senha.
+
+</Callout>
+
+### WhatsApp: o PIN que evita a clonagem
+
+O golpe mais comum no WhatsApp é a clonagem: o golpista tenta registrar o seu número num outro celular e pede para você passar o código de 6 dígitos que chega por SMS. Com ele, assume a conta e pede dinheiro aos seus contatos.
+
+A **confirmação em duas etapas** do WhatsApp cria um PIN de 6 dígitos que você escolhe. Mesmo que alguém consiga o código do SMS, vai precisar também do PIN.
+
+<Callout tipo="exemplo">
+
+**Como ativar no WhatsApp:** Configurações → Conta → Confirmação em duas etapas → Ativar. Escolha um PIN que não seja sua data de nascimento e cadastre um e-mail para recuperar o PIN se esquecer.
+
+Os nomes dos menus mudam um pouco entre versões do app. Se não achar, procure "duas etapas" na busca das configurações.
+
+</Callout>
+
+### E se eu perder o celular?
+
+Ao ativar a verificação em duas etapas, muitos serviços oferecem **códigos de recuperação** (ou códigos de backup). Guarde esses códigos num lugar seguro, como o gerenciador de senhas ou um papel guardado em casa. Eles são a forma de entrar se o celular quebrar ou sumir.
 
 ## O que fazer agora
 
+Comece pelas contas que, se roubadas, causam mais estrago.
+
 <Callout tipo="dica">
 
-- Em produção.
+- **E-mail principal** (Gmail, Outlook): ative a verificação em duas etapas, de preferência com app autenticador ou chave de acesso.
+- **WhatsApp:** ative a confirmação em duas etapas com um PIN.
+- **Instagram e outras redes:** Configurações → Central de contas → Senha e segurança → Autenticação de dois fatores.
+- **Guarde os códigos de recuperação** em lugar seguro.
+- **Nunca passe códigos** de verificação para ninguém, nem para quem diz ser do suporte.
 
 </Callout>
 
 ## Fontes
 
-- Em produção.
+- [Fascículo Verificação em Duas Etapas – Cartilha de Segurança para Internet, CERT.br](https://cartilha.cert.br/fasciculos/)
+- [Ativar a verificação em duas etapas – Ajuda da Conta do Google](https://support.google.com/accounts/answer/185839)
+- [Central de Ajuda do WhatsApp](https://faq.whatsapp.com/)
 
 <ConviteDuvidas />

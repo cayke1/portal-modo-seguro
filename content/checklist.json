@@ -1,3 +1,114 @@
 {
-  "itens": []
+  "itens": [
+    {
+      "id": "golpes-desconfiar-pressa",
+      "modulo": "golpes-e-phishing",
+      "texto": "Combinei comigo mesmo: mensagem com pressa pedindo senha, código ou Pix eu confiro por outro canal antes de agir",
+      "dica": "Ligue para o número que você já tinha ou abra o app oficial. Nunca responda pelo contato que pediu."
+    },
+    {
+      "id": "golpes-palavra-codigo",
+      "modulo": "golpes-e-phishing",
+      "texto": "Combinei uma palavra-código com a minha família para confirmar pedidos de dinheiro por mensagem"
+    },
+    {
+      "id": "golpes-telefone-banco",
+      "modulo": "golpes-e-phishing",
+      "texto": "Salvei nos contatos o telefone oficial do meu banco",
+      "dica": "Ele está no verso do cartão e no site oficial do banco."
+    },
+    {
+      "id": "golpes-links",
+      "modulo": "golpes-e-phishing",
+      "texto": "Parei de clicar em links de mensagens inesperadas e passei a abrir o app ou site oficial"
+    },
+    {
+      "id": "senhas-email",
+      "modulo": "senhas",
+      "texto": "Troquei a senha do meu e-mail principal por uma senha-frase longa e única"
+    },
+    {
+      "id": "senhas-gerenciador",
+      "modulo": "senhas",
+      "texto": "Ativei um gerenciador de senhas no celular",
+      "dica": "Gerenciador de Senhas do Google no Android e no Chrome, app Senhas no iPhone, ou um app como o Bitwarden."
+    },
+    {
+      "id": "senhas-verificacao",
+      "modulo": "senhas",
+      "texto": "Rodei a verificação de senhas do gerenciador e troquei as vazadas ou repetidas"
+    },
+    {
+      "id": "senhas-bloqueio-tela",
+      "modulo": "senhas",
+      "texto": "Meu celular tem senha, PIN ou biometria para desbloquear"
+    },
+    {
+      "id": "senhas-anotacoes",
+      "modulo": "senhas",
+      "texto": "Apaguei senhas guardadas em prints, bloco de notas ou conversas"
+    },
+    {
+      "id": "2fa-whatsapp",
+      "modulo": "autenticacao-em-dois-fatores",
+      "texto": "Ativei a confirmação em duas etapas no WhatsApp",
+      "dica": "Configurações → Conta → Confirmação em duas etapas."
+    },
+    {
+      "id": "2fa-email",
+      "modulo": "autenticacao-em-dois-fatores",
+      "texto": "Ativei a verificação em duas etapas no meu e-mail principal"
+    },
+    {
+      "id": "2fa-redes",
+      "modulo": "autenticacao-em-dois-fatores",
+      "texto": "Ativei a autenticação de dois fatores no Instagram e nas outras redes que uso",
+      "dica": "No Instagram: Central de contas → Senha e segurança → Autenticação de dois fatores."
+    },
+    {
+      "id": "2fa-codigos-recuperacao",
+      "modulo": "autenticacao-em-dois-fatores",
+      "texto": "Guardei os códigos de recuperação das minhas contas principais em lugar seguro"
+    },
+    {
+      "id": "privacidade-perfil",
+      "modulo": "privacidade-e-dados-pessoais",
+      "texto": "Revisei a privacidade das minhas redes sociais (perfil privado e quem vê meus seguidores)"
+    },
+    {
+      "id": "privacidade-localizacao",
+      "modulo": "privacidade-e-dados-pessoais",
+      "texto": "Desativei a localização nas fotos e parei de postar onde estou em tempo real"
+    },
+    {
+      "id": "privacidade-permissoes",
+      "modulo": "privacidade-e-dados-pessoais",
+      "texto": "Revisei as permissões dos apps no celular (localização, câmera, microfone e contatos)"
+    },
+    {
+      "id": "privacidade-documentos",
+      "modulo": "privacidade-e-dados-pessoais",
+      "texto": "Apaguei posts com documentos, comprovantes ou dados pessoais"
+    },
+    {
+      "id": "depois-contestar-pix",
+      "modulo": "depois-de-um-golpe",
+      "texto": "Descobri onde fica a opção de contestar um Pix no app do meu banco"
+    },
+    {
+      "id": "depois-registrato",
+      "modulo": "depois-de-um-golpe",
+      "texto": "Conheço o Registrato do Banco Central para ver contas e empréstimos no meu nome"
+    },
+    {
+      "id": "depois-delegacia",
+      "modulo": "depois-de-um-golpe",
+      "texto": "Salvei o endereço da delegacia virtual do meu estado"
+    },
+    {
+      "id": "depois-plano",
+      "modulo": "depois-de-um-golpe",
+      "texto": "Sei a ordem do que fazer: banco primeiro, depois recuperar contas, depois avisar e registrar BO"
+    }
+  ]
 }

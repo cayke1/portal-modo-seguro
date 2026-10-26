@@ -1,7 +1,7 @@
 export const meta = {
   slug: 'depois-de-um-golpe',
   ordem: 5,
-  semana: 3,
+  semana: 2,
   titulo: 'O que fazer depois de um golpe',
   resumo: 'Os primeiros passos para recuperar contas, avisar quem precisa e registrar o ocorrido.',
   videoId: 'ID_DO_YOUTUBE',
@@ -11,26 +11,79 @@ export const meta = {
 
 <VideoEmbed id={meta.videoId} titulo={meta.titulo} />
 
-{/* Rascunho. Siga a estrutura de docs/guia-de-conteudo.md. */}
-
 ## Por que isso importa
 
-Em produção.
+Mesmo quem conhece todos os truques pode cair num dia de cansaço, pressa ou distração. Golpe não é sinal de burrice: os criminosos estudam como parecer convincentes e testam suas mensagens em milhares de pessoas.
+
+Depois de cair, o que mais atrapalha é a vergonha. Muita gente demora a contar para alguém ou a avisar o banco, e cada hora perdida reduz a chance de recuperar o dinheiro ou a conta. Este módulo é o seu plano de emergência: o que fazer, em que ordem, sem pânico.
 
 ## Como funciona
 
-Em produção.
+A ordem importa. Primeiro você **para o estrago**, depois **recupera o que dá** e por fim **registra e avisa**.
+
+### 1. Mandou dinheiro (Pix, cartão, boleto)
+
+- **Avise o banco imediatamente**, pelo app oficial ou pelo telefone que está no verso do cartão. Nunca use um número que veio na mensagem do golpista.
+- **Pix:** conteste a transação na área Pix do app do seu banco. O Banco Central tem o **Mecanismo Especial de Devolução (MED)**, que permite bloquear e devolver valores enviados em caso de golpe, e desde outubro de 2025 o pedido pode ser feito direto pelo app, sem precisar falar com o atendimento. Quanto mais rápido você contestar, maior a chance de ainda haver dinheiro na conta do golpista.
+- **Cartão:** peça o bloqueio do cartão e a contestação das compras que você não reconhece.
+
+<Callout tipo="alerta">
+
+O MED vale para golpe e fraude. Ele **não** vale para Pix enviado errado por engano seu (como digitar a chave errada) nem para desacordo comercial, como um produto que chegou diferente do anunciado. Nesses casos, o caminho é falar com quem recebeu ou com a loja.
+
+</Callout>
+
+### 2. Perdeu uma conta (WhatsApp, Instagram, e-mail)
+
+- **WhatsApp clonado:** reinstale ou abra o WhatsApp no seu celular e confirme o número com o código que chega por SMS. Isso desconecta o golpista. Depois, ative a confirmação em duas etapas (módulo 3). Se não conseguir, escreva para o suporte do WhatsApp pelo e-mail indicado na Central de Ajuda.
+- **Instagram ou outra rede:** use a opção "Esqueceu a senha?" ou "Preciso de ajuda para entrar" na tela de login. O Instagram tem um fluxo específico para conta invadida que pode pedir um vídeo-selfie para confirmar sua identidade.
+- **E-mail:** recupere pelo fluxo oficial ("Esqueci minha senha") e, assim que entrar, troque a senha, revise os dispositivos conectados e ative a verificação em duas etapas.
+- **Troque a senha** da conta invadida e de todas as contas onde você usava a mesma senha.
+
+### 3. Passou dados pessoais ou de documento
+
+- Se passou senha, troque na hora. Se passou dados do cartão, peça o bloqueio.
+- Consulte o **Registrato**, serviço gratuito do Banco Central, para ver se abriram conta, chave Pix ou empréstimo no seu nome.
+- Fique atento a mensagens que usam seus dados para parecer verdadeiras.
+
+### 4. Avise e registre
+
+- **Avise seus contatos** quando a conta for clonada: "Minha conta foi invadida, não façam Pix para ninguém em meu nome". Poste também em outra rede, se puder.
+- **Registre um boletim de ocorrência (BO).** Muitos estados, como o Tocantins, têm **delegacia virtual**, onde dá para registrar golpes pela internet. O BO pode ser pedido pelo banco e ajuda nas investigações.
+- **Guarde as provas:** prints da conversa, número de telefone, perfil, chave Pix do golpista, comprovantes. Tire os prints antes de bloquear ou apagar.
+- **Se você é menor de idade, conte para um adulto de confiança.** Ele pode ajudar com banco, BO e suporte das plataformas.
+
+<Callout tipo="exemplo">
+
+**Uma situação real:** Ana recebeu uma mensagem da "irmã" com número novo pedindo R$ 600 para pagar uma conta. Fez o Pix, e só depois a irmã respondeu no número antigo. Ana tirou prints da conversa, abriu o app do banco e contestou o Pix na mesma hora, avisou a família no grupo e registrou BO na delegacia virtual. O banco conseguiu bloquear parte do valor que ainda estava na conta do golpista.
+
+</Callout>
+
+### Ajudando alguém que caiu
+
+Se foi um amigo ou parente, a primeira coisa é não culpar. Ajude a seguir a ordem acima: banco primeiro, depois contas, depois BO e avisos. Quem se sente acolhido age mais rápido.
 
 ## O que fazer agora
 
+Monte o seu kit de emergência antes de precisar.
+
 <Callout tipo="dica">
 
-- Em produção.
+- **Salve o telefone oficial do seu banco** (está no verso do cartão e no site oficial).
+- **Descubra onde fica a opção de contestar um Pix** no app do seu banco.
+- **Ative a verificação em duas etapas** no e-mail e no WhatsApp, se ainda não fez.
+- **Guarde os códigos de recuperação** das contas principais.
+- **Salve o endereço da delegacia virtual** do seu estado.
+- **Combine com a família** que pedidos de dinheiro por mensagem sempre serão confirmados por ligação.
 
 </Callout>
 
 ## Fontes
 
-- Em produção.
+- [Pix – Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/pix)
+- [Registrato – Banco Central do Brasil](https://www.bcb.gov.br/cidadaniafinanceira/registrato)
+- [Cartilha de Segurança para Internet – CERT.br](https://cartilha.cert.br/)
+- [Central de Ajuda do WhatsApp](https://faq.whatsapp.com/)
+- [Central de Ajuda do Instagram](https://help.instagram.com/)
 
 <ConviteDuvidas />
