@@ -54,7 +54,13 @@ export default function CartilhaPage() {
               <FileText className={styles.fileIcon} aria-hidden="true" />
               <p className={styles.fileName}>cartilha-modo-seguro.pdf</p>
               <p className={styles.fileMeta}>PDF · {size}</p>
-              <ButtonLink href={PDF_PATH} download iconStart={Download} size="lg" fullWidth>
+              <ButtonLink
+                href={PDF_PATH}
+                download="cartilha-modo-seguro.pdf"
+                iconStart={Download}
+                size="lg"
+                fullWidth
+              >
                 Baixar a cartilha
               </ButtonLink>
             </div>

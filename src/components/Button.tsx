@@ -10,7 +10,7 @@ type ButtonLinkProps = {
   size?: 'md' | 'lg'
   iconStart?: LucideIcon
   iconEnd?: LucideIcon
-  download?: boolean
+  download?: boolean | string
   fullWidth?: boolean
 }
 

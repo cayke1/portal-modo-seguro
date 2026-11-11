@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cartilha de Segurança Digital — Modo Seguro</title>
+    <!--
+      Fonte da cartilha em PDF do Modo Seguro.
+      Edite este arquivo e gere o PDF com o comando em scripts/cartilha/README.md.
+      Documento isolado: cores e fontes são valores literais (espelham src/styles/tokens.css),
+      não importa tokens.css. Capa dark + miolo claro, pensado para impressão A4.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #111312;
+        --muted: #4b4f49;
+        --subtle: #6b6f67;
+        --line: #d7dbd2;
+        --accent: #c6ff3d;
+        --accent-deep: #3f5a00; /* verde escuro legível sobre branco */
+        --dark: #0a0b0a;
+        --dark-surface: #121412;
+        --light-on-dark: #f2f4f0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      @page {
+        size: A4;
+        margin: 15mm 14mm;
+      }
+      @page cover {
+        margin: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        color: var(--ink);
+        font-size: 10.5pt;
+        line-height: 1.5;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.12;
+        margin: 0;
+      }
+
+      .label {
+        font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 7.5pt;
+      }
+
+      /* ---------- Capa (dark, full bleed) ---------- */
+      .cover {
+        page: cover;
+        break-after: page;
+        width: 210mm;
+        height: 297mm;
+        background: var(--dark);
+        color: var(--light-on-dark);
+        padding: 26mm 22mm;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+      .cover::after {
+        /* brilho suave do acento, canto superior */
+        content: '';
+        position: absolute;
+        top: -120mm;
+        right: -60mm;
+        width: 220mm;
+        height: 220mm;
+        background: radial-gradient(circle, rgba(198, 255, 61, 0.16), transparent 62%);
+      }
+      .cover > * {
+        position: relative;
+        z-index: 1;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand svg {
+        width: 34px;
+        height: 34px;
+      }
+      .brand .word {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 22pt;
+        letter-spacing: -0.02em;
+      }
+      .brand .word b {
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .cover .eyebrow {
+        margin-top: auto;
+        color: var(--accent);
+      }
+      .cover h1 {
+        font-size: 40pt;
+        margin-top: 10px;
+        max-width: 15ch;
+      }
+      .cover .lead {
+        margin-top: 16px;
+        font-size: 13pt;
+        color: #c9cdc4;
+        max-width: 42ch;
+        line-height: 1.5;
+      }
+      .cover .foot {
+        margin-top: 34px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        color: #9aa093;
+      }
+      .cover .foot .url {
+        color: var(--accent);
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 10pt;
+        letter-spacing: 0.02em;
+      }
+
+      /* ---------- Miolo (claro) ---------- */
+      .section-eyebrow {
+        color: var(--accent-deep);
+      }
+      .page-title {
+        font-size: 19pt;
+        margin: 4px 0 2px;
+      }
+      .intro {
+        color: var(--muted);
+        max-width: 64ch;
+        margin: 0 0 14px;
+      }
+
+      .modulo {
+        break-inside: avoid;
+        margin: 0 0 13px;
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+      }
+      .modulo:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+      }
+      .modulo-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 4px;
+      }
+      .num {
+        flex: none;
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        background: var(--accent);
+        color: var(--dark);
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 12pt;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modulo-head h2 {
+        font-size: 14.5pt;
+      }
+      .modulo .ctx {
+        color: var(--muted);
+        margin: 0 0 8px;
+      }
+
+      ul.actions {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        columns: 2;
+        column-gap: 22px;
+      }
+      ul.actions.single {
+        columns: 1;
+      }
+      ul.actions li {
+        break-inside: avoid;
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 6px;
+        line-height: 1.38;
+      }
+      ul.actions li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        top: 1px;
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        background: var(--accent);
+        color: var(--dark);
+        font-size: 10px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      ul.actions li b {
+        font-weight: 600;
+      }
+
+      /* Caixas de destaque */
+      .box {
+        break-inside: avoid;
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--accent);
+        border-radius: 8px;
+        background: #fafcf5;
+        padding: 10px 14px;
+        margin: 2px 0 10px;
+      }
+      .box .box-title {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 10.5pt;
+        margin: 0 0 6px;
+      }
+      .box ul {
+        margin: 0;
+        padding-left: 16px;
+      }
+      .box li {
+        margin-bottom: 3px;
+      }
+      .box.note {
+        border-left-color: var(--subtle);
+        background: #f6f7f4;
+        color: var(--muted);
+      }
+
+      /* Plano de emergência: passos numerados */
+      ol.steps {
+        list-style: none;
+        counter-reset: step;
+        margin: 2px 0 10px;
+        padding: 0;
+      }
+      ol.steps li {
+        break-inside: avoid;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 8px;
+        counter-increment: step;
+      }
+      ol.steps li::before {
+        content: counter(step);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background: var(--dark);
+        color: var(--accent);
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 10pt;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      ol.steps li b {
+        font-weight: 600;
+      }
+
+      /* ---------- Fechamento (cartão dark) ---------- */
+      .closing {
+        break-inside: avoid;
+        margin-top: 16px;
+        background: var(--dark);
+        color: var(--light-on-dark);
+        border-radius: 14px;
+        padding: 20px 22px;
+      }
+      .closing h2 {
+        font-size: 15pt;
+        color: #fff;
+      }
+      .closing .url {
+        display: inline-block;
+        margin: 8px 0 2px;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 13pt;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .closing p {
+        color: #c9cdc4;
+        margin: 6px 0 0;
+        max-width: 60ch;
+      }
+      .closing .sources {
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        font-size: 8.5pt;
+        color: #9aa093;
+        line-height: 1.5;
+      }
+      .closing .sources b {
+        color: #c9cdc4;
+        font-weight: 600;
+      }
+      .page-foot {
+        margin-top: 10px;
+        text-align: center;
+        color: var(--subtle);
+        font-size: 8pt;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ CAPA ============ -->
+    <section class="cover">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            fill="#C6FF3D"
+            d="M30.8 4.4a4 4 0 0 1 2.4 0l21 6.6A4 4 0 0 1 57 14.8V29c0 14.2-8.4 24.3-23.1 31a4.5 4.5 0 0 1-3.8 0C15.4 53.3 7 43.2 7 29V14.8A4 4 0 0 1 9.8 11Z"
+          />
+          <path
+            fill="none"
+            stroke="#0A0B0A"
+            stroke-width="5.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m19 24 9 8-9 8"
+          />
+          <rect x="33" y="37" width="13" height="5.5" rx="1" fill="#0A0B0A" />
+        </svg>
+        <span class="word">modo<b>seguro</b></span>
+      </div>
+
+      <p class="eyebrow label">Minicurso de segurança digital</p>
+      <h1>Cartilha de Segurança Digital</h1>
+      <p class="lead">
+        O resumo do minicurso Modo Seguro: os principais cuidados de cada tema, para você guardar,
+        imprimir ou mandar para quem quiser proteger.
+      </p>
+
+      <div class="foot">
+        <span class="label">Projeto de extensão universitária</span>
+        <span class="url">modoseguro.cayke.dev</span>
+      </div>
+    </section>
+
+    <!-- ============ COMO USAR ============ -->
+    <p class="label section-eyebrow">Como usar</p>
+    <h1 class="page-title">Antes de começar</h1>
+    <p class="intro">
+      Cada bloco traz os cuidados essenciais de um tema do curso. Não precisa fazer tudo de uma vez:
+      marque um item por dia. A ideia não é ter medo da internet, é pegar poucos hábitos que já
+      resolvem a maioria dos golpes.
+    </p>
+
+    <div class="box">
+      <p class="box-title">Quase todo golpe tem os mesmos 3 ingredientes</p>
+      <ul>
+        <li><b>Alguém em quem você confia</b> — banco, Correios, loja, um parente, o gov.br.</li>
+        <li><b>Pressa ou medo</b> — "sua conta será bloqueada", "última chance", "foi você?".</li>
+        <li>
+          <b>Um pedido</b> — clicar num link, digitar senha, passar um código, fazer um Pix.
+        </li>
+      </ul>
+      <p style="margin: 6px 0 0; color: var(--muted)">
+        Quando os três aparecem juntos e com pressa, pare e confira por outro canal.
+      </p>
+    </div>
+
+    <div class="box note">
+      <p class="box-title" style="color: var(--ink)">Como conferir um link</p>
+      O que vale é o nome logo antes da primeira barra <code>/</code>, lido da direita para a
+      esquerda. Em <code>itau.com.atendimento-online.xyz</code>, o site é
+      <code>atendimento-online.xyz</code>, não o Itaú. O cadeado <b>não</b> prova que o site é
+      confiável. Na dúvida, não use o link: abra o app oficial ou digite o endereço você mesmo.
+    </div>
+
+    <!-- ============ MÓDULOS ============ -->
+    <section class="modulo">
+      <div class="modulo-head">
+        <span class="num">1</span>
+        <h2>Golpes e phishing</h2>
+      </div>
+      <p class="ctx">
+        O golpista não invade nada: ele engana você para entregar senha, código ou Pix.
+      </p>
+
+      <div class="box">
+        <p class="box-title">Golpes comuns hoje</p>
+        <ul>
+          <li><b>Central falsa do banco:</b> pede Pix para uma "conta segura" — que não existe.</li>
+          <li><b>Número novo:</b> "parente" pedindo um Pix urgente com foto tirada das redes.</li>
+          <li><b>Taxa de entrega:</b> SMS cobrando uma taxinha para liberar encomenda.</li>
+          <li><b>"Me passa o código?":</b> é a clonagem do seu WhatsApp.</li>
+          <li><b>Promoção e emprego fácil:</b> prêmio ou renda extra que pede pagamento antes.</li>
+          <li><b>Loja falsa:</b> preço bom demais, só aceita Pix e nunca entrega.</li>
+        </ul>
+      </div>
+
+      <ul class="actions">
+        <li>Desconfie da pressa: mensagem urgente pedindo senha, código ou Pix é alerta.</li>
+        <li>Confira por outro canal — ligue para o número que já tinha ou abra o app oficial.</li>
+        <li>Nunca passe códigos que chegam por SMS ou WhatsApp.</li>
+        <li>Banco não pede senha nem Pix para "conta segura", e não manda buscar cartão em casa.</li>
+        <li>Não clique em link de mensagem inesperada.</li>
+        <li>Combine uma palavra-código com a família para pedidos de dinheiro.</li>
+      </ul>
+    </section>
+
+    <section class="modulo">
+      <div class="modulo-head">
+        <span class="num">2</span>
+        <h2>Senhas</h2>
+      </div>
+      <p class="ctx">
+        Sites vazam senhas o tempo todo. Se você repete senha, uma conta vazada abre todas as
+        outras.
+      </p>
+
+      <ul class="actions">
+        <li>
+          Crie uma <b>senha-frase</b> longa para o e-mail principal (ex.:
+          <code>girafa-panela-chuva-violão-29</code>).
+        </li>
+        <li>Ative o gerenciador de senhas do celular (Google ou Apple) — ou o Bitwarden.</li>
+        <li>Rode a verificação de senhas e troque as que aparecerem vazadas ou repetidas.</li>
+        <li>Pare de repetir senha: cada conta ganha uma gerada pelo gerenciador.</li>
+        <li>Coloque senha, PIN ou biometria para desbloquear o celular.</li>
+        <li>Não guarde senha em print, bloco de notas ou conversa com você mesmo.</li>
+      </ul>
+
+      <div class="box note">
+        A senha mais importante é a do <b>e-mail</b>: é por ela que se recupera quase todas as outras
+        contas. Dê a ela a senha mais forte e a verificação em duas etapas.
+      </div>
+    </section>
+
+    <section class="modulo">
+      <div class="modulo-head">
+        <span class="num">3</span>
+        <h2>Autenticação em dois fatores (2FA)</h2>
+      </div>
+      <p class="ctx">
+        Uma segunda tranca: mesmo que a senha vaze, o golpista para na segunda porta. Leva uns cinco
+        minutos por conta.
+      </p>
+
+      <ul class="actions">
+        <li>Ative a verificação em duas etapas no e-mail — de preferência com app autenticador.</li>
+        <li>Ative a confirmação em duas etapas do WhatsApp com um PIN (Configurações → Conta).</li>
+        <li>Ative a 2FA no Instagram e nas outras redes que você usa.</li>
+        <li>Guarde os códigos de recuperação num lugar seguro.</li>
+        <li>Nunca passe o código para ninguém, nem para quem diz ser do suporte.</li>
+        <li>Chegou uma aprovação de login que você não pediu? Toque em <b>Não</b> e troque a senha.</li>
+      </ul>
+
+      <div class="box note">
+        Da mais fraca à mais forte: código por <b>SMS</b> &lt; <b>app autenticador</b> &lt;
+        <b>aprovação no app</b> &lt; <b>chave de acesso (passkey)</b>, que usa sua digital ou rosto e
+        não dá para entregar a um site falso.
+      </div>
+    </section>
+
+    <section class="modulo">
+      <div class="modulo-head">
+        <span class="num">4</span>
+        <h2>Privacidade e dados pessoais</h2>
+      </div>
+      <p class="ctx">
+        Posts inofensivos, juntos, mostram onde você estuda, com quem anda e a que horas sai de casa
+        — a matéria-prima do golpe.
+      </p>
+
+      <ul class="actions">
+        <li>Deixe o perfil privado e esconda sua lista de seguidores.</li>
+        <li>Desative a localização nas fotos; poste depois que já saiu do lugar.</li>
+        <li>Revise as permissões dos apps: localização, câmera, microfone e contatos.</li>
+        <li>Nunca poste documentos, boletos ou comprovantes, nem com parte coberta.</li>
+        <li>Não responda "brincadeiras" que pedem nome do pet, rua ou data de nascimento.</li>
+        <li>Saber seus dados não prova identidade — desconfie mesmo se acertam seu nome ou CPF.</li>
+      </ul>
+
+      <div class="box note">
+        <b>Seus direitos (LGPD, Lei nº 13.709/2018):</b> você pode ver, corrigir e pedir a exclusão
+        dos seus dados. Peça primeiro à empresa; se ela não responder, reclame na ANPD.
+      </div>
+    </section>
+
+    <section class="modulo">
+      <div class="modulo-head">
+        <span class="num">5</span>
+        <h2>O que fazer depois de um golpe</h2>
+      </div>
+      <p class="ctx">
+        Cair não é burrice. O que mais atrapalha é a vergonha e a demora. Aja rápido e nesta ordem.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <b>Pare o estrago.</b> Avise o banco pelo app ou pelo telefone do verso do cartão (nunca
+          um número da mensagem). No Pix, conteste pelo MED, que dá para pedir no próprio app.
+          Bloqueie o cartão.
+        </li>
+        <li>
+          <b>Recupere as contas.</b> Reinstale o WhatsApp e confirme o número; use "esqueci a senha"
+          no Instagram e no e-mail; troque a senha em toda conta onde ela se repetia.
+        </li>
+        <li>
+          <b>Avise e registre.</b> Avise seus contatos, guarde os prints, registre um BO (muitos
+          estados têm delegacia virtual) e consulte o Registrato do Banco Central.
+        </li>
+      </ol>
+
+      <p class="box-title" style="font-size: 10pt; margin: 2px 0 5px">Monte seu kit de emergência</p>
+      <ul class="actions">
+        <li>Salve o telefone oficial do seu banco (verso do cartão e site oficial).</li>
+        <li>Descubra onde fica a opção de contestar um Pix no app.</li>
+        <li>Ative a verificação em duas etapas no e-mail e no WhatsApp.</li>
+        <li>Guarde os códigos de recuperação das contas principais.</li>
+        <li>Salve o endereço da delegacia virtual do seu estado.</li>
+        <li>Se você é menor de idade, conte para um adulto de confiança.</li>
+      </ul>
+    </section>
+
+    <!-- ============ FECHAMENTO ============ -->
+    <section class="closing">
+      <p class="label" style="color: var(--accent)">Continue de onde parou</p>
+      <h2>O curso completo está no portal</h2>
+      <span class="url">modoseguro.cayke.dev</span>
+      <p>
+        Lá você encontra os 5 módulos com vídeo, o checklist interativo, o quiz de fechamento e as
+        perguntas da comunidade. Tudo gratuito, sem cadastro.
+      </p>
+      <div class="sources">
+        <b>Fontes:</b> Cartilha de Segurança (CERT.br) · Banco Central — Pix, MED e Registrato ·
+        ANPD e LGPD, Lei nº 13.709/2018 · Have I Been Pwned.
+      </div>
+    </section>
+    <p class="page-foot">
+      Modo Seguro — material gratuito de um projeto de extensão universitária. Pode imprimir e
+      compartilhar.
+    </p>
+  </body>
+</html>
