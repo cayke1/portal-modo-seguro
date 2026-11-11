@@ -11,7 +11,7 @@ type ModuleCardProps = {
 }
 
 export function ModuleCard({ modulo, headingLevel: Heading = 'h2' }: ModuleCardProps) {
-  const { slug, ordem, semana, titulo, resumo, duracaoVideo, publicado, capa } = modulo
+  const { slug, ordem, titulo, resumo, duracaoVideo, publicado, capa } = modulo
 
   return (
     <article className={`${styles.card} ${publicado ? styles.available : styles.locked}`}>
@@ -26,14 +26,12 @@ export function ModuleCard({ modulo, headingLevel: Heading = 'h2' }: ModuleCardP
           {formatOrder(ordem)}
         </span>
         <span className={`${styles.status} ${publicado ? styles.statusOpen : ''}`}>
-          {publicado ? 'Disponível' : `Semana ${semana}`}
+          {publicado ? 'Disponível' : 'Em breve'}
         </span>
       </div>
 
       <div className={styles.body}>
-        <p className={styles.eyebrow}>
-          Módulo {formatOrder(ordem)} · Semana {semana}
-        </p>
+        <p className={styles.eyebrow}>Módulo {formatOrder(ordem)}</p>
         <Heading className={styles.title}>
           {publicado ? (
             <Link href={`/modulos/${slug}`} className={styles.link}>
@@ -60,7 +58,7 @@ export function ModuleCard({ modulo, headingLevel: Heading = 'h2' }: ModuleCardP
           ) : (
             <span className={styles.meta}>
               <Lock aria-hidden="true" />
-              Libera na semana {semana}
+              Em breve
             </span>
           )}
         </p>

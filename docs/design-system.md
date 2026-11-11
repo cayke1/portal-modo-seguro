@@ -54,7 +54,7 @@ Use os componentes antes de criar estilo novo.
 | `EmptyState` | conteúdo que ainda não foi liberado |
 | `Prose` | MDX e texto longo |
 | `Callout`, `VideoEmbed`, `ConviteDuvidas` | dentro do MDX |
-| `Faq`, `Timeline` | perguntas frequentes e cronograma |
+| `Faq`, `Timeline` | perguntas frequentes e trilha do curso |
 
 Ícones: **lucide-react**, traço padrão, sempre `aria-hidden="true"` quando decorativos. Ícone de módulo em `src/lib/module-visuals.ts`.
 

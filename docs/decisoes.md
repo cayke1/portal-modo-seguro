@@ -54,3 +54,6 @@ Traço consistente, só os ícones usados entram no bundle e funciona em Server 
 
 ### D17. Header enxuto com gaveta no celular (05/10/2026)
 Desktop: Módulos, Checklist, Quiz, Materiais (Cartilha, Live, Perguntas) e botão de inscrição. "Sobre" vai para o rodapé. No celular, tudo numa gaveta em tela cheia.
+
+### D18. Curso autoguiado, sem cronograma semanal (11/11/2026)
+O calendário de 4 semanas não cabia mais no prazo até a apresentação (14/11). Os 5 módulos passam a ser publicados de uma vez e o portal apresenta o curso como autoguiado ("no seu ritmo"). Removido o campo `semana` do `meta` dos módulos — a liberação continua pela flag `publicado` (D6). Substituída a comunicação de "semana X"/"4 semanas" na landing, `/modulos`, `/quiz`, `/live` e no 404; a seção "Cronograma" virou a trilha "Faça no seu ritmo".

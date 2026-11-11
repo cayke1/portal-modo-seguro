@@ -66,7 +66,7 @@ export default async function OpengraphImage() {
           digital.
         </div>
         <div style={{ display: 'flex', color: '#a3a99f', fontSize: 30 }}>
-          {SITE_NAME} · 5 módulos · 4 semanas
+          {SITE_NAME} · 5 módulos · no seu ritmo
         </div>
       </div>
     </div>,

@@ -7,7 +7,6 @@ import { contentError, isNonEmptyString, isPositiveInteger, isRecord } from './v
 export type ModuloMeta = {
   slug: string
   ordem: number
-  semana: number
   titulo: string
   resumo: string
   videoId: string
@@ -26,19 +25,18 @@ const SLUG_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/
 function parseMeta(file: string, meta: unknown): ModuloMeta {
   if (!isRecord(meta)) throw contentError(file, 'falta `export const meta = { ... }`')
 
-  const { slug, ordem, semana, titulo, resumo, videoId, duracaoVideo, publicado } = meta
+  const { slug, ordem, titulo, resumo, videoId, duracaoVideo, publicado } = meta
   if (!isNonEmptyString(slug) || !SLUG_PATTERN.test(slug)) {
     throw contentError(file, '`slug` deve ter só letras minúsculas, números e hífens')
   }
   if (!isPositiveInteger(ordem)) throw contentError(file, '`ordem` deve ser um número inteiro')
-  if (!isPositiveInteger(semana)) throw contentError(file, '`semana` deve ser um número inteiro')
   if (!isNonEmptyString(titulo)) throw contentError(file, '`titulo` é obrigatório')
   if (!isNonEmptyString(resumo)) throw contentError(file, '`resumo` é obrigatório')
   if (!isNonEmptyString(videoId)) throw contentError(file, '`videoId` é obrigatório')
   if (!isNonEmptyString(duracaoVideo)) throw contentError(file, '`duracaoVideo` é obrigatório')
   if (typeof publicado !== 'boolean') throw contentError(file, '`publicado` deve ser true ou false')
 
-  return { slug, ordem, semana, titulo, resumo, videoId, duracaoVideo, publicado }
+  return { slug, ordem, titulo, resumo, videoId, duracaoVideo, publicado }
 }
 
 function findCover(slug: string): string | null {

@@ -12,15 +12,15 @@ O portal reúne os 5 módulos do minicurso (microaula + texto), o checklist de s
 
 ## Módulos
 
-| # | Módulo | Semana |
-|---|---|---|
-| 1 | Golpes e phishing | 1 |
-| 2 | Senhas | 1 |
-| 3 | Autenticação em dois fatores | 2 |
-| 4 | Privacidade e dados pessoais | 2 |
-| 5 | O que fazer depois de um golpe | 3 |
+| # | Módulo |
+|---|---|
+| 1 | Golpes e phishing |
+| 2 | Senhas |
+| 3 | Autenticação em dois fatores |
+| 4 | Privacidade e dados pessoais |
+| 5 | O que fazer depois de um golpe |
 
-Semana 4: live de encerramento, quiz e questionário final.
+O curso é autoguiado: os cinco módulos ficam abertos desde a publicação. O fechamento reúne live de encerramento, quiz e questionário final.
 
 ## Rodando localmente
 

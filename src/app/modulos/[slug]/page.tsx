@@ -1,4 +1,4 @@
-import { ArrowLeft, CalendarDays, FileText, PlayCircle } from 'lucide-react'
+import { ArrowLeft, FileText, PlayCircle } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -59,10 +59,6 @@ export default async function ModuloPage({ params }: ModuloPageProps) {
                 <li>
                   <FileText aria-hidden="true" />
                   Texto de leitura rápida
-                </li>
-                <li>
-                  <CalendarDays aria-hidden="true" />
-                  Semana {modulo.semana}
                 </li>
               </ul>
             </div>

@@ -19,7 +19,7 @@ export default function LivePage() {
   return (
     <>
       <PageHeader
-        eyebrow={isNonEmptyString(data) ? data : 'Semana 4'}
+        eyebrow={isNonEmptyString(data) ? data : 'Encerramento'}
         eyebrowIcon={Radio}
         title="Live de encerramento"
         lead="Uma conversa ao vivo para revisar os cinco módulos e responder às perguntas da turma. Quem não puder assistir ao vivo encontra a gravação aqui."
@@ -31,7 +31,7 @@ export default function LivePage() {
           <EmptyState icon={CalendarDays} title="A gravação aparece aqui depois da live">
             {isNonEmptyString(data)
               ? `A live acontece em ${data}. Inscritos recebem o link por e-mail.`
-              : 'A data sai junto com o último módulo. Inscritos recebem o link por e-mail.'}
+              : 'A data é divulgada em breve. Inscritos recebem o link por e-mail.'}
           </EmptyState>
         )}
       </Container>

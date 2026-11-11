@@ -34,7 +34,7 @@ export default function ChecklistPage() {
               </ButtonLink>
             }
           >
-            Cada módulo liberado traz algumas ações práticas para você marcar aqui, como ativar a
+            Cada módulo traz algumas ações práticas para você marcar aqui, como ativar a
             verificação em duas etapas no WhatsApp.
           </EmptyState>
         )}

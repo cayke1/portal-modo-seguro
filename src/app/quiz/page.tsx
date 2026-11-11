@@ -21,7 +21,7 @@ export default function QuizPage() {
   return (
     <>
       <PageHeader
-        eyebrow={total > 0 ? `${total} perguntas · anônimo` : 'Semana 4'}
+        eyebrow={total > 0 ? `${total} perguntas · anônimo` : 'Fechamento'}
         eyebrowIcon={CircleHelp}
         title="Quiz"
         lead="Situações do dia a dia para testar o que você aprendeu. Cada resposta vem com um comentário explicando o porquê. Não pedimos nome nem e-mail."
@@ -33,15 +33,14 @@ export default function QuizPage() {
           ) : (
             <EmptyState
               icon={CircleHelp}
-              title="O quiz abre na semana 4"
+              title="O quiz chega em breve"
               action={
                 <ButtonLink href="/checklist" variant="secondary">
                   Abrir o checklist
                 </ButtonLink>
               }
             >
-              Ele chega junto com a live de encerramento, depois que todos os módulos forem
-              liberados. Enquanto isso, que tal começar pelo checklist?
+              Estamos finalizando as perguntas. Enquanto isso, que tal começar pelo checklist?
             </EmptyState>
           )}
 

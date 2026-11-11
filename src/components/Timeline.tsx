@@ -5,7 +5,7 @@ type TimelineProps = {
   items: { label: string; title: string; content: ReactNode; highlight?: boolean }[]
 }
 
-/** Cronograma: vertical no celular, em colunas no desktop. */
+/** Trilha do curso: vertical no celular, em colunas no desktop. */
 export function Timeline({ items }: TimelineProps) {
   return (
     <ol className={styles.timeline}>

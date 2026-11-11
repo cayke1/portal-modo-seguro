@@ -24,7 +24,7 @@ export default function ModulosPage() {
         eyebrow={`${publicados} de ${modulos.length} disponíveis`}
         eyebrowIcon={BookOpen}
         title="Módulos"
-        lead="Cinco módulos curtos, cada um com uma microaula e um texto direto ao ponto. Eles são liberados ao longo de três semanas e continuam abertos depois."
+        lead="Cinco módulos curtos, cada um com uma microaula e um texto direto ao ponto. Estão todos abertos — comece por qualquer um e volte quando quiser."
       />
       <Container>
         <div className={styles.body}>
@@ -41,9 +41,9 @@ export default function ModulosPage() {
               <IconBadge icon={BellRing} size="lg" />
               <div className={styles.bannerText}>
                 <p className={styles.bannerTitle}>
-                  <strong>Quer saber quando sai o próximo módulo?</strong>
+                  <strong>Quer acompanhar o Modo Seguro?</strong>
                 </p>
-                <p>Inscritos recebem um e-mail no dia de cada liberação.</p>
+                <p>Inscritos recebem novidades do curso e o questionário por e-mail.</p>
               </div>
               <ButtonLink href={forms.inscricao} iconEnd={ArrowRight}>
                 Quero receber

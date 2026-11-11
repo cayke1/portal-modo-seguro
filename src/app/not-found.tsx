@@ -18,8 +18,8 @@ export default function NotFound() {
         <SearchX className={styles.icon} aria-hidden="true" />
         <h1 className={styles.title}>Página não encontrada</h1>
         <p className={styles.text}>
-          Esse endereço não existe ou o módulo ainda não foi liberado. Os módulos abrem ao longo das
-          semanas do curso.
+          Esse endereço não existe ou saiu do ar. Todos os módulos estão abertos — é só continuar por
+          lá.
         </p>
         <div className={styles.actions}>
           <ButtonLink href="/modulos" iconEnd={ArrowRight}>

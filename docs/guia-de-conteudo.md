@@ -26,7 +26,6 @@ Arquivo em `content/modulos/NN-slug.mdx`:
 export const meta = {
   slug: 'senhas',
   ordem: 2,
-  semana: 1,
   titulo: 'Senhas',
   resumo: 'Uma frase dizendo o que a pessoa aprende neste módulo.',
   videoId: 'ID_DO_YOUTUBE',

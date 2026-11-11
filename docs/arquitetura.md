@@ -87,8 +87,8 @@ mdx-components.tsx      # mapeamento global de componentes MDX
 
 | Rota | Conteúdo | Renderização |
 |---|---|---|
-| `/` | apresentação, cronograma das 4 semanas, botão de inscrição | estática |
-| `/modulos` | lista dos 5 módulos, com estado "libera na semana X" | estática |
+| `/` | apresentação, trilha dos módulos, botão de inscrição | estática |
+| `/modulos` | lista dos 5 módulos, com estado disponível/em breve | estática |
 | `/modulos/[slug]` | microaula + texto + convite para dúvidas | estática (`generateStaticParams`) |
 | `/checklist` | checklist interativo e imprimível | estática + componente cliente |
 | `/quiz` | quiz com resposta comentada | estática + componente cliente |
@@ -108,7 +108,6 @@ Cada módulo é um `.mdx` que exporta seus metadados:
 export const meta = {
   slug: 'golpes-e-phishing',
   ordem: 1,
-  semana: 1,
   titulo: 'Golpes e phishing',
   resumo: 'Como reconhecer mensagens, links e ligações falsas antes de cair.',
   videoId: 'XXXXXXXXXXX',
@@ -126,7 +125,7 @@ export const meta = {
 
 ### Liberação progressiva
 
-- `publicado: false` → o módulo aparece em `/modulos` como bloqueado ("libera na semana X") e `/modulos/[slug]` retorna 404.
+- `publicado: false` → o módulo aparece em `/modulos` como bloqueado ("em breve") e `/modulos/[slug]` retorna 404.
 - Liberar = PR que troca para `true`, com título `conteudo: libera módulo N`.
 - O commit de merge serve de **registro datado da liberação** para o relatório e o log de horas. Não liberar por data automática.
 

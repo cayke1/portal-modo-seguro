@@ -15,11 +15,9 @@ import { forms } from '@/lib/env'
 import { listModulos } from '@/lib/modulos'
 import styles from './page.module.css'
 
-const LAST_WEEK = 4
-
 const STATS = [
   { value: '5', label: 'módulos' },
-  { value: '4', label: 'semanas' },
+  { value: '~30', label: 'minutos' },
   { value: 'R$ 0', label: 'gratuito' },
   { value: '100%', label: 'online e aberto' },
 ]
@@ -84,7 +82,7 @@ const STEPS = [
   },
   {
     title: 'Teste o que aprendeu',
-    text: 'Na última semana tem quiz com resposta comentada, live de encerramento e questionário final.',
+    text: 'No fim, tem quiz com resposta comentada, live de encerramento e questionário final.',
   },
 ]
 
@@ -93,25 +91,18 @@ export default function HomePage() {
   const inscricaoHref = forms.inscricao ?? '/modulos'
   const inscricaoLabel = forms.inscricao ? 'Quero me inscrever' : 'Começar agora'
 
-  const weeks = Array.from({ length: LAST_WEEK - 1 }, (_, index) => index + 1).map((semana) => ({
-    label: `Semana ${semana}`,
-    title: semana === 3 ? 'Recuperação' : semana === 1 ? 'Golpes e senhas' : 'Contas e dados',
-    content: (
-      <ul>
-        {modulos
-          .filter((modulo) => modulo.semana === semana)
-          .map((modulo) => (
-            <li key={modulo.slug}>
-              {modulo.publicado ? (
-                <Link href={`/modulos/${modulo.slug}`}>{modulo.titulo}</Link>
-              ) : (
-                modulo.titulo
-              )}
-            </li>
-          ))}
-      </ul>
-    ),
-  }))
+  const trilha = [
+    {
+      label: 'Comece aqui',
+      title: 'Reconhecer e proteger',
+      modulos: modulos.filter((modulo) => modulo.ordem <= 3),
+    },
+    {
+      label: 'Depois',
+      title: 'Dados e recuperação',
+      modulos: modulos.filter((modulo) => modulo.ordem >= 4),
+    },
+  ]
 
   return (
     <>
@@ -128,7 +119,7 @@ export default function HomePage() {
         </div>
         <Container>
           <div className={styles.heroContent}>
-            <Eyebrow icon={ShieldCheck}>Minicurso gratuito · 4 semanas</Eyebrow>
+            <Eyebrow icon={ShieldCheck}>Minicurso gratuito · no seu ritmo</Eyebrow>
             <h1 id="hero-title" className={styles.heroTitle}>
               Ative o <span className={styles.highlight}>modo seguro</span> na sua vida digital.
             </h1>
@@ -205,7 +196,7 @@ export default function HomePage() {
             id="modulos"
             eyebrow="Conteúdo"
             title="5 módulos, um passo de cada vez"
-            description="Cada módulo tem uma microaula e um texto curto. Eles são liberados ao longo de três semanas."
+            description="Cada módulo tem uma microaula e um texto curto. Estão todos abertos — faça na ordem que quiser."
             action={
               <ButtonLink href="/modulos" variant="secondary" iconEnd={ArrowRight}>
                 Todos os módulos
@@ -243,27 +234,43 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className={styles.section} aria-labelledby="cronograma">
+      <section className={styles.section} aria-labelledby="ritmo">
         <Container>
           <SectionHeader
-            id="cronograma"
-            eyebrow="Cronograma"
-            title="Quatro semanas, no seu ritmo"
-            description="Os módulos ficam abertos depois de liberados. Dá para começar a qualquer momento e rever quando quiser."
+            id="ritmo"
+            eyebrow="A trilha"
+            title="Faça no seu ritmo"
+            description="Está tudo disponível desde já. A ordem abaixo é só uma sugestão: comece por onde quiser e volte quando precisar."
           />
           <Timeline
             items={[
-              ...weeks.map((week, index) => ({ ...week, highlight: index === 0 })),
+              ...trilha.map((etapa, index) => ({
+                label: etapa.label,
+                title: etapa.title,
+                highlight: index === 0,
+                content: (
+                  <ul>
+                    {etapa.modulos.map((modulo) => (
+                      <li key={modulo.slug}>
+                        <Link href={`/modulos/${modulo.slug}`}>{modulo.titulo}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                ),
+              })),
               {
-                label: `Semana ${LAST_WEEK}`,
-                title: 'Encerramento',
+                label: 'Para fechar',
+                title: 'Pratique e teste',
                 content: (
                   <ul>
                     <li>
-                      <Link href="/live">Live de encerramento</Link>
+                      <Link href="/checklist">Checklist</Link>
                     </li>
                     <li>
-                      <Link href="/quiz">Quiz</Link> e questionário final
+                      <Link href="/quiz">Quiz</Link> com resposta comentada
+                    </li>
+                    <li>
+                      <Link href="/live">Live de encerramento</Link>
                     </li>
                   </ul>
                 ),
